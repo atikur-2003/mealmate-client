@@ -51,7 +51,12 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
-        <a className="px-3 py-1 border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white cursor-pointer rounded-lg">Button</a>
+        <Link to='/login' className="px-3 py-1 border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white cursor-pointer rounded-lg mr-2">
+        Login
+        </Link>
+        <Link to='/register' className="px-3 py-1 border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white cursor-pointer rounded-lg">
+        Register
+        </Link>
       </div>
     </div>
   );
