@@ -10,14 +10,14 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const Banner = () => {
   return (
-    <div className="w-full bg-white dark:bg-slate-900 my-20 py-12 px-4 md:px-8">
+    <div className="w-full bg-gray-100 pt-30 pb-10 px-4 md:px-8">
       <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-10">
         {/* Left Content */}
         <div className="md:w-1/2 space-y-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
+          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 ">
             Welcome to <span className="text-blue-500">MealMate</span>
           </h1>
-          <p className="text-gray-600 dark:text-gray-300 text-lg">
+          <p className="text-gray-600 text-lg">
             Manage your hostel meals, upgrade your membership, and enjoy a
             smarter campus life.
           </p>
@@ -27,9 +27,9 @@ const Banner = () => {
             <input
               type="text"
               placeholder="Search meals..."
-              className="w-full px-4 py-2 border border-gray-300 dark:border-slate-600 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-primary dark:bg-slate-800 dark:text-white"
+              className="w-full px-4 py-2 border border-gray-300  rounded-xl shadow-sm focus:outline-none focus:border-2 focus:border-blue-500 "
             />
-            <button className="px-4 py-2 bg-primary text-white rounded-xl hover:bg-blue-600 transition duration-200">
+            <button className="px-4 py-2 border border-blue-500 text-blue-500 rounded-xl hover:bg-blue-500 hover:text-white cursor-pointer">
               Search
             </button>
           </div>

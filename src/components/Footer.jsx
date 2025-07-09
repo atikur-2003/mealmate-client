@@ -5,7 +5,7 @@ import { FaX } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="footer footer-horizontal footer-center bg-primary text-primary-content p-10 mt-20">
+    <footer className="footer footer-horizontal footer-center bg-primary text-primary-content p-10">
       <aside>
        <img className="w-20 rounded-full" src={logo} alt="" />
         <p className="text-2xl font-bold">
