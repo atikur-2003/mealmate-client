@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 
 const Login = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, formState:{errors} } = useForm();
   const { login } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
@@ -45,10 +45,14 @@ const Login = () => {
               <label className="label text-lg font-semibold">Email</label>
               <input
                 type="email"
-                {...register("email")}
+                {...register("email",{required: true})}
                 className="input"
                 placeholder="Enter Email"
               />
+
+              {errors.email?.type === "required" && (
+                <p className="text-red-500 text-base">Email is required</p>
+              )}
 
               <label className="label text-lg font-semibold">Password</label>
               <input
