@@ -1,9 +1,15 @@
 import React from "react";
-import { Link, NavLink } from "react-router";
+import { Link, Navigate, NavLink, useNavigate } from "react-router";
 import logo from "../assets/logo.png";
 import { IoMenu } from "react-icons/io5";
+import { Menu } from "@headlessui/react";
+import useAuth from "../hooks/useAuth";
+import Swal from "sweetalert2";
+import LogoTitle from "../shared/LogoTitle";
 
 const Navbar = () => {
+  const { user, logOut } = useAuth();
+  const navigate = useNavigate()
   const navLinks = (
     <>
       <li>
@@ -24,6 +30,23 @@ const Navbar = () => {
     </>
   );
 
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "You Logged Out successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="navbar bg-gray-100 shadow-sm fixed top-0 left-0 z-10">
       <div className="navbar-start">
@@ -38,25 +61,57 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
+
         <Link to="/">
-          <div className="flex items-center">
-            <img className="w-14 hidden md:block rounded-full" src={logo} alt="" />
-            <span className="text-xl md:text-3xl font-bold text-blue-500">
-              MealMate
-            </span>
-          </div>
+          <LogoTitle></LogoTitle>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
+
       <div className="navbar-end">
-        <Link to='/login' className="px-3 py-1 border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white cursor-pointer rounded-lg mr-2">
-        Login
-        </Link>
-        <Link to='/register' className="px-3 py-1 border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white cursor-pointer rounded-lg">
-        Register
-        </Link>
+        {user ? (
+          <Menu as="div" className="relative inline-block text-left ">
+            <Menu.Button className="flex items-center focus:outline-none">
+              <img
+                src={user.photoURL}
+                alt="User"
+                className="w-10 h-10 rounded-full cursor-pointer"
+              />
+            </Menu.Button>
+
+            <Menu.Items className="absolute right-0 mt-2 w-60 origin-top-right bg-white border rounded shadow-lg z-50">
+              <div className="px-4 py-2 border-b font-medium text-gray-700">
+                {user.displayName}
+              </div>
+
+              <div className="w-full text-left px-4 py-2 hover:bg-gray-100">
+                <Link to='/dashboard'>Dashboard</Link>
+              </div>
+
+              <Menu.Item>
+                {({ active }) => (
+                  <button 
+                  onClick={handleLogout}
+                    className={`w-full text-left px-4 py-2 ${
+                      active ? "bg-gray-100" : ""
+                    } text-red-600 cursor-pointer`}
+                  >
+                    Log Out
+                  </button>
+                )}
+              </Menu.Item>
+            </Menu.Items>
+          </Menu>
+        ) : (
+          <Link
+            to="/login"
+            className="px-3 py-1 border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white cursor-pointer rounded-lg mr-2"
+          >
+            Join Us
+          </Link>
+        )}
       </div>
     </div>
   );
