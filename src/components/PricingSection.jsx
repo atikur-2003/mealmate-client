@@ -6,20 +6,17 @@ const packages = [
   {
     name: "Silver",
     price: 499,
-    benefits: ["Request 5 meals/month", "Like upcoming meals", "Basic support"],
-    // color: "border-gray-300 bg-white text-gray-800 hover:border-blue-500",
+    benefits: ["Request 5 meals/month", "Like upcoming meals", "Basic support"]
   },
   {
     name: "Gold",
     price: 899,
-    benefits: ["Request 15 meals/month", "Priority meal requests", "Access to all reviews"],
-    // color: "border-yellow-500 bg-yellow-100 text-yellow-900 hover:border-yellow-600",
+    benefits: ["Request 15 meals/month", "Priority meal requests", "Access to all reviews"]
   },
   {
     name: "Platinum",
     price: 1299,
-    benefits: ["Unlimited meal requests", "Meal tracking & stats", "Premium support"],
-    // color: "border-purple-500 bg-purple-100 text-purple-900 hover:border-purple-600",
+    benefits: ["Unlimited meal requests", "Meal tracking & stats", "Premium support"]
   },
 ];
 
@@ -50,7 +47,7 @@ const PricingSection = () => {
                 ))}
               </ul>
               <Link
-                to={`/checkout/${pkg.name.toLowerCase()}`}
+                to={`/payment`}
                 className="block text-center border border-blue-500 text-blue-500 py-2 rounded-lg hover:bg-blue-500 hover:text-white font-semibold"
               >
                 Get {pkg.name}

@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, Navigate, NavLink, useNavigate } from "react-router";
-import logo from "../assets/logo.png";
 import { IoMenu } from "react-icons/io5";
 import { Menu } from "@headlessui/react";
 import useAuth from "../hooks/useAuth";
@@ -18,7 +17,7 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/" className="text-slate-800 font-semibold">
+        <NavLink to="/meals" className="text-slate-800 font-semibold">
           Meals
         </NavLink>
       </li>
