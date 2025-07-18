@@ -7,6 +7,8 @@ import Register from "../pages/authPages/Register";
 import DashboardLayout from "../layouts/DashboardLayout";
 import PrivateRoute from "./PrivateRoute";
 import AddMeal from "../pages/dashboardPages/AddMeal";
+import MealDetails from "../pages/MealDetails";
+import AdminProfile from "../pages/dashboardPages/AdminProfile";
 
 export const router = createBrowserRouter([
     {
@@ -16,6 +18,10 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 Component: Home
+            },
+            {
+                path: 'meal/:id',
+                Component: MealDetails
             }
             
         ]
@@ -41,6 +47,10 @@ export const router = createBrowserRouter([
             {
                 path:'add-meal',
                 Component: AddMeal
+            },
+            {
+                path: 'admin-profile',
+                Component: AdminProfile
             }
         ]
     }

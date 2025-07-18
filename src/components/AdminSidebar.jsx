@@ -12,7 +12,7 @@ const AdminSidebar = () => {
         </div>
       </Link>
       <nav className="flex flex-col p-4 space-y-3">
-        <NavLink to="/admin/profile" className="hover:text-primary flex items-center gap-2">
+        <NavLink to="/dashboard/admin-profile" className="hover:text-primary flex items-center gap-2">
           <FaHome /> Profile
         </NavLink>
         <NavLink to="/dashboard/add-meal" className="hover:text-primary flex items-center gap-2">
