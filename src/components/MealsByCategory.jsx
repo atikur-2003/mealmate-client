@@ -61,7 +61,9 @@ const MealsByCategory = () => {
               />
               <div className="p-4">
                 <h3 className="text-xl font-semibold mb-2">{meal.title}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">Rating: {meal.rating ?? 0}</p>
+                <p><strong>Category: </strong>{meal.category}</p>
+
+                <p className="text-sm mt-1 text-gray-600 dark:text-gray-300 mb-2">Rating: {meal.rating ?? 0}</p>
                 <p className="text-lg font-bold text-primary">৳{meal.price}</p>
                 <Link
                   to={`/meal/${meal._id}`}
