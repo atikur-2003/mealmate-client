@@ -1,11 +1,12 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import React from "react";
+import React, { useState } from "react";
 
 const PaymentForm = () => {
   const stripe = useStripe();
   const elements = useElements();
+  const [error, setError] = useState("");
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!stripe || !elements) {
       return;
@@ -16,21 +17,39 @@ const PaymentForm = () => {
       return;
     }
 
-    const {error, paymentMethod} = await stripe.createPaymentMethod({
-        type:'card',
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: "card",
+      card,
+    });
 
-    })
-
+    if (error) {
+      setError(error);
+      console.log(error);
+    } else {
+      setError("");
+      console.log("PaymentMethod", paymentMethod);
+    }
   };
 
   return (
     <div className="py-40">
-      <form onSubmit={handleSubmit} className="space-y-4 bg-white rounded-lg p-6 shadow-md max-w-[350px] mx-auto">
-        <CardElement className="p-2 border rounded">
-          <button type="submit" disabled={!stripe}>
-            Pay
-          </button>
-        </CardElement>
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-4 bg-white rounded-lg p-6 shadow-md max-w-[300px] md:max-w-[400px] mx-auto"
+      >
+        <CardElement className="p-2 border rounded"></CardElement>
+        <button
+          type="submit"
+          className="border border-blue-500 text-blue-500 py-1 rounded-lg w-full cursor-pointer"
+          disabled={!stripe}
+        >
+          Pay
+        </button>
+        {
+            error && <p className="text-red-500">{error}</p>
+            
+        }
+        
       </form>
     </div>
   );
