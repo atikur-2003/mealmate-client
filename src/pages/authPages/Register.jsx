@@ -1,11 +1,10 @@
-import React from "react";
-import Lottie from "lottie-react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
-import { AuthContext } from "../../contexts/AuthContexts";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import SocialLogin from "./SocialLogin";
+import axios, { Axios } from "axios";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -14,12 +13,13 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { createUser } = useAuth();
+  const { createUser, updateUserProfile } = useAuth();
+  const [profilePic, setProfilePic] = useState('');
 
   const onSubmit = (data) => {
     console.log(data);
     createUser(data.email, data.password)
-      .then((result) => {
+      .then( async(result) => {
         console.log(result.user);
         Swal.fire({
           position: "top-end",
@@ -28,6 +28,31 @@ const Register = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+
+        //update userinfo in mongodb
+        const userInfo = {
+          email:data.email,
+          role: 'user',
+          created_at: new Date().toISOString(),
+          last_log_in: new Date().toISOString()
+        }
+
+        const userRes = await axios.post('http://localhost:5000/users', userInfo);
+        console.log(userRes.data);
+
+        //update userinfo in firebase
+        const userProfile = {
+          displayName: data.name,
+          photoURL: profilePic
+        }
+        updateUserProfile(userProfile)
+        .then(()=>{
+          console.log('profile updated');
+        })
+        .catch(error =>{
+          console.log(error);
+        })
+
         navigate("/");
       })
       .catch((error) => {
@@ -35,9 +60,21 @@ const Register = () => {
       });
   };
 
+  const handleUploadImage = async(e) => {
+    const image = e.target.files[0];
+
+    const formData = new FormData();
+    formData.append("image", image);
+
+    const imageHostingKey = import.meta.env.VITE_IMGBB_API_KEY;
+    const imageHostingUrl = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`;
+
+    const res = await axios.post(imageHostingUrl, formData);
+    setProfilePic(res.data.url);
+  };
+
   return (
     <div className="hero bg-base-200 min-h-screen pl-7 md:l-0">
-      
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mr-10">
         <div className="card-body">
           <div className="text-center my-5">
@@ -52,12 +89,20 @@ const Register = () => {
                 type="text"
                 {...register("name", { required: true })}
                 className="input"
-                placeholder="Enter Name"
+                placeholder="Enter Your Name"
               />
 
               {errors.name?.type === "required" && (
                 <p className="text-red-500 text-base">Name is required</p>
               )}
+
+              <label className="label text-lg font-semibold">Phot URL</label>
+              <input
+                onChange={handleUploadImage}
+                type="file"
+                className="input"
+                placeholder="Enter Profile Picture"
+              />
 
               <label className="label text-lg font-semibold">Email</label>
               <input

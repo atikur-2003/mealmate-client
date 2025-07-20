@@ -2,6 +2,7 @@ import React from "react";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router";
+import axios from "axios";
 
 const SocialLogin = () => {
   const { googleSignIn } = useAuth();
@@ -10,7 +11,8 @@ const SocialLogin = () => {
 
   const handleGoogleSignin = () => {
     googleSignIn()
-      .then((result) => {
+      .then( async(result) => {
+        const user = result.user;
         console.log(result.user);
         Swal.fire({
           position: "top-end",
@@ -19,6 +21,18 @@ const SocialLogin = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+
+         //update userinfo in mongodb
+        const userInfo = {
+          email:user.email,
+          role: 'user',
+          created_at: new Date().toISOString(),
+          last_log_in: new Date().toISOString()
+        }
+
+        const res = await axios.post('http://localhost:5000/users', userInfo);
+        console.log(res.data);
+
         navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
