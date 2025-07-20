@@ -12,6 +12,7 @@ import AdminProfile from "../pages/dashboardPages/AdminProfile";
 import Meals from "../pages/Meals";
 import Payment from "../pages/Payment";
 import AllMeals from "../pages/dashboardPages/AllMeals";
+import AllReviews from "../pages/dashboardPages/AllReviews";
 
 export const router = createBrowserRouter([
     {
@@ -66,6 +67,10 @@ export const router = createBrowserRouter([
             {
                 path: 'all-meals',
                 Component: AllMeals
+            },
+            {
+                path: 'all-reviews',
+                Component: AllReviews
             }
         ]
     }
