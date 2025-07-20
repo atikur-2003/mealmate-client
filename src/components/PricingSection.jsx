@@ -47,7 +47,7 @@ const PricingSection = () => {
                 ))}
               </ul>
               <Link
-                to={`/payment`}
+                to={`/payment/${pkg.name.toLowerCase()}`}
                 className="block text-center border border-blue-500 text-blue-500 py-2 rounded-lg hover:bg-blue-500 hover:text-white font-semibold"
               >
                 Get {pkg.name}

@@ -11,6 +11,7 @@ import MealDetails from "../pages/MealDetails";
 import AdminProfile from "../pages/dashboardPages/AdminProfile";
 import Meals from "../pages/Meals";
 import Payment from "../pages/Payment";
+import AllMeals from "../pages/dashboardPages/AllMeals";
 
 export const router = createBrowserRouter([
     {
@@ -30,7 +31,7 @@ export const router = createBrowserRouter([
                 Component: Meals
             },
             {
-                path: 'payment',
+                path: 'payment/:packageName',
                 element:<PrivateRoute><Payment></Payment></PrivateRoute>
             }
             
@@ -61,6 +62,10 @@ export const router = createBrowserRouter([
             {
                 path: 'admin-profile',
                 Component: AdminProfile
+            },
+            {
+                path: 'all-meals',
+                Component: AllMeals
             }
         ]
     }
