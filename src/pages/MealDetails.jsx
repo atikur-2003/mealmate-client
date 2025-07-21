@@ -5,6 +5,7 @@ import dayjs from "dayjs";
 import useAuth from "../hooks/useAuth";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import Loading from "../components/Loading";
 
 const MealDetails = () => {
   const { id } = useParams();
@@ -48,7 +49,9 @@ const MealDetails = () => {
       return axiosSecure.post(`/meal-requests`, {
         mealId: id,
         mealTitle: meal.title,
-        email: user?.email,
+        requestedBy: user?.email,
+        likes: meal.likes,
+        reviews_count: meal.reviews_count,
         status: "pending",
         requestTime: new Date(),
       });
@@ -72,7 +75,8 @@ const MealDetails = () => {
         mealTitle: meal.title,
         reviewer: user?.displayName,
         reviewerEmail: user?.email,
-        comment: reviewText,
+        review: reviewText,
+        likes:meal.likes,
         time: new Date(),
       });
     },
@@ -107,8 +111,7 @@ const MealDetails = () => {
     reviewMutation.mutate();
   };
 
-  if (isLoading)
-    return <div className="text-center py-10">Loading meal details...</div>;
+  if (isLoading) return <Loading></Loading>;
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-26">

@@ -11,7 +11,6 @@ const Navbar = () => {
   const { user, logOut } = useAuth();
   const navigate = useNavigate();
   const [role] = useRole();
-  console.log(role);
   const navLinks = (
     <>
       <li>
