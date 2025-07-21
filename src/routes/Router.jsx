@@ -13,6 +13,12 @@ import Meals from "../pages/Meals";
 import Payment from "../pages/Payment";
 import AllMeals from "../pages/dashboardPages/AllMeals";
 import AllReviews from "../pages/dashboardPages/AllReviews";
+import UserDashboardLayout from "../layouts/UserDasboardLayout";
+import AdminRoute from "./AdminRoute";
+import MyProfile from "../pages/userPages/MyProfile";
+import RequestedMeal from "../pages/userPages/RequestedMeal";
+import MyReviews from "../pages/userPages/MyReviews";
+import MyPayments from "../pages/userPages/MyPayments";
 
 export const router = createBrowserRouter([
     {
@@ -53,17 +59,19 @@ export const router = createBrowserRouter([
         ]
     },
     {
-        path: '/dashboard',
-        element:<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+        //admin dashboard
+        path: '/dashboard/admin',
+        element:<AdminRoute><DashboardLayout></DashboardLayout></AdminRoute>,
         children:[
-            {
-                path:'add-meal',
-                Component: AddMeal
-            },
             {
                 path: 'admin-profile',
                 Component: AdminProfile
             },
+            {
+                path:'add-meal',
+                Component: AddMeal
+            },
+            
             {
                 path: 'all-meals',
                 Component: AllMeals
@@ -72,6 +80,30 @@ export const router = createBrowserRouter([
                 path: 'all-reviews',
                 Component: AllReviews
             }
+        ]
+    },
+    {
+        //user dashboard
+        path:'dashboard/user',
+        element:<PrivateRoute><UserDashboardLayout></UserDashboardLayout></PrivateRoute>,
+        children:[
+            {
+                path:'my-profile',
+                Component: MyProfile
+            },
+            {
+                path:'requested-meal',
+                Component: RequestedMeal
+            },
+            {
+                path:'my-reviews',
+                Component: MyReviews
+            },
+            {
+                path:'my-payments',
+                Component: MyPayments
+            }
+
         ]
     }
 ])

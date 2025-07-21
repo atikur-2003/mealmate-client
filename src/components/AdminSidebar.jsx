@@ -12,25 +12,25 @@ const AdminSidebar = () => {
         </div>
       </Link>
       <nav className="flex flex-col p-4 space-y-3">
-        <NavLink to="/dashboard/admin-profile" className="hover:text-primary flex items-center gap-2">
+        <NavLink to="/dashboard/admin/admin-profile" className="hover:text-primary flex items-center gap-2">
           <FaHome /> Profile
         </NavLink>
-        <NavLink to="/dashboard/add-meal" className="hover:text-primary flex items-center gap-2">
+        <NavLink to="/dashboard/admin/add-meal" className="hover:text-primary flex items-center gap-2">
           <FaPlus /> Add Meal
         </NavLink>
-        <NavLink to="/dashboard/all-meals" className="hover:text-primary flex items-center gap-2">
+        <NavLink to="/dashboard/admin/all-meals" className="hover:text-primary flex items-center gap-2">
           <FaList /> All Meals
         </NavLink>
-        <NavLink to="/dashboard/manage-users" className="hover:text-primary flex items-center gap-2">
+        <NavLink to="/dashboard/admin/manage-users" className="hover:text-primary flex items-center gap-2">
           <FaUsers /> Manage Users
         </NavLink>
-        <NavLink to="/dashboard/all-reviews" className="hover:text-primary flex items-center gap-2">
+        <NavLink to="/dashboard/admin/all-reviews" className="hover:text-primary flex items-center gap-2">
           <FaUtensils /> All Reviews
         </NavLink>
-        <NavLink to="/admin/serve-meals" className="hover:text-primary flex items-center gap-2">
+        <NavLink to="/dashboard/admin/serve-meals" className="hover:text-primary flex items-center gap-2">
           <FaConciergeBell /> Serve Meals
         </NavLink>
-        <NavLink to="/admin/upcoming-meals" className="hover:text-primary flex items-center gap-2">
+        <NavLink to="/dashboard/admin/upcoming-meals" className="hover:text-primary flex items-center gap-2">
           <FaCalendarAlt /> Upcoming Meals
         </NavLink>
       </nav>

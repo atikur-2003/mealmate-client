@@ -5,10 +5,13 @@ import { Menu } from "@headlessui/react";
 import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
 import LogoTitle from "../shared/LogoTitle";
+import useRole from "../hooks/useRole";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [role] = useRole();
+  console.log(role);
   const navLinks = (
     <>
       <li>
@@ -86,13 +89,21 @@ const Navbar = () => {
               </div>
 
               <div className="w-full text-left px-4 py-2 hover:bg-gray-100">
-                <Link to='/dashboard'>Dashboard</Link>
+                <Link
+                  to={
+                    role === "admin"
+                      ? "/dashboard/admin/admin-profile"
+                      : "/dashboard/user/my-profile"
+                  }
+                >
+                  Dashboard
+                </Link>
               </div>
 
               <Menu.Item>
                 {({ active }) => (
-                  <button 
-                  onClick={handleLogout}
+                  <button
+                    onClick={handleLogout}
                     className={`w-full text-left px-4 py-2 ${
                       active ? "bg-gray-100" : ""
                     } text-red-600 cursor-pointer`}
