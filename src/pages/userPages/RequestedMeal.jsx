@@ -29,7 +29,7 @@ const RequestedMeals = () => {
 
   return (
     <div className="p-6">
-      <h2 className="text-xl font-bold mb-4">My Requested Meals</h2>
+      <h2 className="text-2xl md:text-3xl text-blue-500 font-bold mb-4">My Requested Meals</h2>
 
       <div className="overflow-x-auto">
         <table className="table-auto w-full border">

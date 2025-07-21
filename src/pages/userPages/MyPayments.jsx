@@ -4,7 +4,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const MyPayments = () => {
   const { user } = useAuth();
-  const [axiosSecure] = useAxiosSecure();
+  const axiosSecure = useAxiosSecure();
 
   const { data: payments = [], isLoading } = useQuery({
     queryKey: ["user-payments", user?.email],
@@ -17,7 +17,7 @@ const MyPayments = () => {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">My Payment History</h2>
+      <h2 className="text-2xl md:text-3xl text-blue-500 font-bold mb-5 ">My Payment History</h2>
 
       {isLoading ? (
         <p>Loading...</p>
@@ -38,11 +38,11 @@ const MyPayments = () => {
             <tbody>
               {payments.map((payment, index) => (
                 <tr key={payment._id} className="border-t">
-                  <td>{index + 1}</td>
-                  <td>{payment.packageName}</td>
-                  <td>${payment.price}</td>
-                  <td>{payment.transactionId}</td>
-                  <td>{new Date(payment.date).toLocaleString()}</td>
+                  <td className="font-medium">{index + 1}</td>
+                  <td className="font-medium">{payment.package}</td>
+                  <td className="font-medium">taka {payment.price}</td>
+                  <td className="font-medium">{payment.transactionId}</td>
+                  <td className="font-medium">{new Date(payment.date).toLocaleString()}</td>
                 </tr>
               ))}
             </tbody>

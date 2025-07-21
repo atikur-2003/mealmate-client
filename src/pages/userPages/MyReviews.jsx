@@ -31,7 +31,7 @@ const MyReviews = () => {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">My Reviews</h2>
+      <h2 className="text-2xl md:text-3xl text-blue-500 font-bold mb-4">My Reviews</h2>
       <div className="overflow-x-auto">
         <table className="table-auto w-full border border-gray-300 text-center">
           <thead className="bg-gray-100">
