@@ -23,6 +23,7 @@ import ManageUsers from "../pages/dashboardPages/ManageUsers";
 import UpcomingMeals from "../pages/UpcomingMeals";
 import AdminUpcomingMeals from "../pages/dashboardPages/AdminUpcomingMeals";
 import ServeMeal from "../pages/dashboardPages/ServeMeal";
+import ErrorPage from "../pages/ErrorPage";
 
 export const router = createBrowserRouter([
     {
@@ -125,5 +126,9 @@ export const router = createBrowserRouter([
             }
 
         ]
-    }
+    },
+    {
+    path: '*',
+    Component: ErrorPage
+  }
 ])

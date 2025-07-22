@@ -1,19 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import Lottie from "lottie-react";
 import { Link, useLocation, useNavigate } from "react-router";
 import SocialLogin from "./SocialLogin";
 import useAuth from "../../hooks/useAuth";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import { FaEyeSlash, FaRegEye } from "react-icons/fa";
 
 const Login = () => {
-  const { register, handleSubmit, formState:{errors} } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const { login } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
+  const [error, setError] = useState("");
+  const [showPass, setShowPass] = useState(false);
 
   const onSubmit = (data) => {
     console.log(data);
+    setError("");
     login(data.email, data.password)
       .then((result) => {
         console.log(result.user);
@@ -27,7 +35,8 @@ const Login = () => {
         navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.message);
+        setError(error.message);
       });
   };
 
@@ -45,7 +54,7 @@ const Login = () => {
               <label className="label text-lg font-semibold">Email</label>
               <input
                 type="email"
-                {...register("email",{required: true})}
+                {...register("email", { required: true })}
                 className="input"
                 placeholder="Enter Email"
               />
@@ -55,12 +64,24 @@ const Login = () => {
               )}
 
               <label className="label text-lg font-semibold">Password</label>
-              <input
-                type="password"
-                {...register("password")}
-                className="input"
-                placeholder="Enter Password"
-              />
+              <div className="relative">
+                <input
+                  type={showPass ? "text" : "password"}
+                  {...register("password", { required: true, minLength: 6 })}
+                  className="input"
+                  placeholder="Enter Password"
+                />
+                <button
+                  onClick={() => {
+                    setShowPass(!showPass);
+                  }}
+                  className="btn btn-xs absolute right-5 top-2 z-10"
+                >
+                  {showPass ? <FaRegEye></FaRegEye> : <FaEyeSlash></FaEyeSlash>}
+                </button>
+              </div>
+
+              {errors && <p className="text-red-500">{error}</p>}
 
               <div>
                 <a className="link link-hover text-sm text-gray-600">

@@ -5,6 +5,7 @@ import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import SocialLogin from "./SocialLogin";
 import axios, { Axios } from "axios";
+import { FaEyeSlash, FaRegEye } from "react-icons/fa";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ const Register = () => {
   } = useForm();
   const { createUser, updateUserProfile } = useAuth();
   const [profilePic, setProfilePic] = useState('');
+  const [showPass, setShowPass] = useState(false);
 
   const onSubmit = (data) => {
     console.log(data);
@@ -119,20 +121,35 @@ const Register = () => {
               )}
 
               <label className="label text-lg font-semibold">Password</label>
-              <input
-                type="password"
-                {...register("password", { required: true, minLength: 6 })}
+              <div className="relative">
+                <input
+                type={showPass ? "text" : "password"}
+                {...register("password", { required: true, minLength: 6, pattern: /(?=.*[a-z])(?=.*[A-Z])[a-zA-Z]/})}
                 className="input"
                 placeholder="Enter Password"
               />
+              <button
+                onClick={() => {
+                  setShowPass(!showPass);
+                }}
+                className="btn btn-xs absolute right-5 top-2 z-10"
+              >
+                {showPass ? <FaRegEye></FaRegEye>: <FaEyeSlash></FaEyeSlash>}
+              </button>
+              </div>
 
               {errors.password?.type === "required" && (
                 <p className="text-red-500 text-base">Password is required</p>
               )}
 
+              {errors.password?.type === "pattern" && (
+                <p className="text-red-500 text-base">
+                  Password must have one uppercase, one lowercase 
+                </p>
+              )}
               {errors.password?.type === "minLength" && (
                 <p className="text-red-500 text-base">
-                  Password must 6 character or longer
+                  Password must be at least 6 character or longer 
                 </p>
               )}
 
