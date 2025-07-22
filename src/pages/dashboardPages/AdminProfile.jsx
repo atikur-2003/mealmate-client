@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Loading from "../../components/Loading";
 
 const AdminProfile = () => {
   const { user } = useAuth();
@@ -17,7 +18,7 @@ const AdminProfile = () => {
   });
 
   if (isLoading)
-    return <div className="text-center py-10">Loading profile...</div>;
+    return <Loading></Loading>;
 
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white shadow rounded-md">

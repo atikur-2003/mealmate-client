@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Loading from "../../components/Loading";
 
 const MyPayments = () => {
   const { user } = useAuth();
@@ -20,7 +21,7 @@ const MyPayments = () => {
       <h2 className="text-2xl md:text-3xl text-blue-500 font-bold mb-5 ">My Payment History</h2>
 
       {isLoading ? (
-        <p>Loading...</p>
+        <Loading></Loading>
       ) : payments.length === 0 ? (
         <p className="text-gray-500">You haven't made any payments yet.</p>
       ) : (
