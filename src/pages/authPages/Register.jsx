@@ -70,7 +70,9 @@ const Register = () => {
     const imageHostingUrl = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`;
 
     const res = await axios.post(imageHostingUrl, formData);
-    setProfilePic(res.data.url);
+    console.log(res.data);
+    const imageUrl = res.data.data.display_url;
+    setProfilePic(imageUrl);
   };
 
   return (

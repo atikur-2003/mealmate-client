@@ -50,6 +50,7 @@ const MealDetails = () => {
         mealId: id,
         mealTitle: meal.title,
         requestedBy: user?.email,
+        name:user?.displayName,
         likes: meal.likes,
         reviews_count: meal.reviews_count,
         status: "pending",

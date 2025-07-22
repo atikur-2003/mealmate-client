@@ -19,6 +19,10 @@ import MyProfile from "../pages/userPages/MyProfile";
 import RequestedMeal from "../pages/userPages/RequestedMeal";
 import MyReviews from "../pages/userPages/MyReviews";
 import MyPayments from "../pages/userPages/MyPayments";
+import ManageUsers from "../pages/dashboardPages/ManageUsers";
+import UpcomingMeals from "../pages/UpcomingMeals";
+import AdminUpcomingMeals from "../pages/dashboardPages/AdminUpcomingMeals";
+import ServeMeal from "../pages/dashboardPages/ServeMeal";
 
 export const router = createBrowserRouter([
     {
@@ -40,6 +44,10 @@ export const router = createBrowserRouter([
             {
                 path: 'payment/:packageName',
                 element:<PrivateRoute><Payment></Payment></PrivateRoute>
+            },
+            {
+                path: 'upcoming-meals',
+                Component: UpcomingMeals
             }
             
         ]
@@ -79,6 +87,18 @@ export const router = createBrowserRouter([
             {
                 path: 'all-reviews',
                 Component: AllReviews
+            },
+            {
+                path: 'manage-users',
+                Component: ManageUsers
+            },
+            {
+                path:'upcoming-meals',
+                Component: AdminUpcomingMeals
+            },
+            {
+                path: 'serve-meal',
+                Component: ServeMeal
             }
         ]
     },

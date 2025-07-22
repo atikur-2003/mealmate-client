@@ -27,7 +27,7 @@ const AdminSidebar = () => {
         <NavLink to="/dashboard/admin/all-reviews" className="hover:text-primary flex items-center gap-2">
           <FaUtensils /> All Reviews
         </NavLink>
-        <NavLink to="/dashboard/admin/serve-meals" className="hover:text-primary flex items-center gap-2">
+        <NavLink to="/dashboard/admin/serve-meal" className="hover:text-primary flex items-center gap-2">
           <FaConciergeBell /> Serve Meals
         </NavLink>
         <NavLink to="/dashboard/admin/upcoming-meals" className="hover:text-primary flex items-center gap-2">
