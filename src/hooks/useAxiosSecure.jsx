@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import useAuth from "./useAuth";
+import Swal from "sweetalert2";
 
 const axiosSecure = axios.create({
   baseURL: `https://assignment-12-server-bay-tau.vercel.app`,
@@ -34,7 +35,7 @@ const useAxiosSecure = () => {
       const status = error.response?.status;
 
       if (status === 403) {
-        alert("Forbidden");
+        Swal.fire("Forbidden");
       } 
 
       return Promise.reject(error);

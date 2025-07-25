@@ -39,7 +39,7 @@ const Register = () => {
           last_log_in: new Date().toISOString()
         }
 
-        const userRes = await axios.post('http://localhost:5000/users', userInfo);
+        const userRes = await axios.post('https://assignment-12-server-bay-tau.vercel.app/users', userInfo);
         console.log(userRes.data);
 
         //update userinfo in firebase

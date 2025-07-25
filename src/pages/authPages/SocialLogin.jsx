@@ -30,7 +30,7 @@ const SocialLogin = () => {
           last_log_in: new Date().toISOString()
         }
 
-        const res = await axios.post('http://localhost:5000/users', userInfo);
+        const res = await axios.post('https://assignment-12-server-bay-tau.vercel.app/users', userInfo);
         console.log(res.data);
 
         navigate(`${location.state ? location.state : "/"}`);
