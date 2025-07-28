@@ -67,7 +67,7 @@ const ServeMeal = () => {
             ) : (
               requestedMeals.map((meal) => (
                 <tr key={meal._id} className="border-t">
-                  <td className="p-2 border">{meal.title}</td>
+                  <td className="p-2 border">{meal.mealTitle}</td>
                   <td className="p-2 border">{meal.requestedBy}</td>
                   <td className="p-2 border">{meal.name || "N/A"}</td>
                   <td className="p-2 border capitalize">{meal.status}</td>

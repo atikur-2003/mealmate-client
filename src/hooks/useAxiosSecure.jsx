@@ -32,11 +32,6 @@ const useAxiosSecure = () => {
     (res) => res,
     (error) => {
       console.log("inside interceptor", error.response?.status);
-      const status = error.response?.status;
-
-      if (status === 403) {
-        Swal.fire("Forbidden");
-      } 
 
       return Promise.reject(error);
     }
