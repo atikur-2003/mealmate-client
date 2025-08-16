@@ -14,10 +14,10 @@ const Banner = () => {
       <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-10">
         {/* Left Content */}
         <div className="md:w-1/2 space-y-6">
-          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 ">
+          <h1 className="text-3xl md:text-5xl font-bold">
             Welcome to <span className="text-blue-500">MealMate</span>
           </h1>
-          <p className="text-gray-600 text-lg">
+          <p className="text-lg">
             Manage your hostel meals, upgrade your membership, and enjoy a
             smarter campus life.
           </p>
