@@ -37,7 +37,7 @@ const MealsByCategory = () => {
             onClick={() => setSelected(tab)}
             className={`px-5 py-2 rounded-full border text-sm transition-all font-semibold cursor-pointer hover:bg-blue-500 hover:text-white ${
               selected === tab
-                ? 'bg-blue-500 text-white'
+                ? 'bg-blue-500 text-white border-none'
                 : 'border-blue-500 text-blue-500'
             }`}
           >
