@@ -50,7 +50,7 @@ const UpcomingMeals = () => {
 
   if (isLoading) return <Loading></Loading>;
 
-  if (!meals.length) return <Loading></Loading>;
+  if (!meals.length) return <h1 className="py-20">no upcoming meal available</h1>;
 
   return (
     <div className="grid py-30 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">

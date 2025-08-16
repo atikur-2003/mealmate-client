@@ -10,7 +10,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const Banner = () => {
   return (
-    <div className="w-full bg-gray-100 pt-30 pb-10 px-4 md:px-8">
+    <div className="w-full bg-base-100 pt-30 pb-10 px-4 md:px-8">
       <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-10">
         {/* Left Content */}
         <div className="md:w-1/2 space-y-6">

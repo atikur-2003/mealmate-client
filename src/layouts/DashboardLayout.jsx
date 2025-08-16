@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AdminSidebar from "../components/AdminSidebar";
-import { Outlet } from "react-router";
+import { Link, Outlet } from "react-router";
 import { FaBars } from "react-icons/fa";
 import LogoTitle from "../shared/LogoTitle";
 
@@ -8,7 +8,7 @@ const DashboardLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen flex bg-gray-100 dark:bg-slate-900 relative">
+    <div className="min-h-screen flex bg-base-100 dark:bg-slate-900 relative">
       {/* Sidebar for desktop */}
       <div className="hidden md:block w-64">
         <AdminSidebar />
@@ -36,11 +36,13 @@ const DashboardLayout = () => {
         <div className="md:hidden flex gap-3 items-center mb-4">
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="text-gray-800 dark:text-white text-xl"
+            className="text-base-800 dark:text-white text-xl"
           >
             <FaBars />
           </button>
-          <LogoTitle></LogoTitle>
+          <Link to="/">
+            <LogoTitle></LogoTitle>
+          </Link>
         </div>
 
         <Outlet />

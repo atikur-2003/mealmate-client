@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import { Link } from 'react-router';
 import useAxiosSecure from '../hooks/useAxiosSecure';
+import Loading from './Loading';
 
 const MealsByCategory = () => {
   const [selected, setSelected] = useState('All');
@@ -22,10 +23,10 @@ const MealsByCategory = () => {
 
   const tabs = ['All', 'Breakfast', 'Lunch', 'Dinner'];
 
-  if (isLoading) return <div className="text-center py-10">Loading meals...</div>;
+  if (isLoading) return <Loading></Loading>;
 
   return (
-    <section className="my-16 px-4 max-w-6xl mx-auto">
+    <section className="my-16 px-4 md:px-7 max-w-6xl mx-auto">
       <h2 className="text-3xl text-blue-500 font-bold text-center mb-8">Meals by Category</h2>
 
       {/* Tab buttons */}
@@ -52,14 +53,14 @@ const MealsByCategory = () => {
           .map((meal) => (
             <div
               key={meal._id}
-              className="rounded-lg overflow-hidden shadow-lg bg-white dark:bg-slate-800"
+              className="rounded-lg overflow-hidden shadow-lg bg-base-200 p-5"
             >
               <img
                 src={meal.image}
                 alt={meal.title}
-                className="w-full h-48 object-cover"
+                className="w-full h-48 object-cover rounded-lg"
               />
-              <div className="p-4">
+              <div className="py-4">
                 <h3 className="text-xl font-semibold mb-2">{meal.title}</h3>
                 <p><strong>Category: </strong>{meal.category}</p>
 

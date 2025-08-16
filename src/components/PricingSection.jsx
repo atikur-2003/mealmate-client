@@ -22,7 +22,7 @@ const packages = [
 
 const PricingSection = () => {
   return (
-    <div className="py-16 px-4 md:px-12 bg-gray-100 dark:bg-slate-900">
+    <div className="py-16 px-4 md:px-12 bg-base-100 dark:bg-slate-900">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-blue-500">Choose Your Plan</h2>
         <p className="text-gray-600 text-lg font-medium mb-10">

@@ -2,12 +2,14 @@ import { Link, NavLink } from "react-router";
 import { FaUsers, FaPlus, FaUtensils, FaList, FaHome,FaConciergeBell,
   FaCalendarAlt, } from "react-icons/fa";
 import LogoTitle from "../shared/LogoTitle";
+import logo from '../assets/logo.png'
 
 const AdminSidebar = () => {
   return (
     <aside className="w-full md:w-64 h-full bg-slate-800 text-white fixed md:static top-0 left-0 z-50">
       <Link to="/">
-        <div className="p-6 border-b border-slate-600">
+        <div className="flex gap-2 p-6 border-b border-slate-600">
+          <img src={logo} className="w-12 md:hidden rounded-full bg-white" alt="" />
           <LogoTitle></LogoTitle>
         </div>
       </Link>

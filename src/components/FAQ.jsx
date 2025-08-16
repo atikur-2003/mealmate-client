@@ -2,7 +2,7 @@ import React from "react";
 
 const FAQ = () => {
   return (
-    <div className="bg-gray-100 px-2 md:px-10 py-10">
+    <div className="bg-base-100 px-2 md:px-10 py-10">
       <div className="text-center mb-10">
         <h1 className="text-xl md:text-3xl font-bold text-blue-500">
           Frequently Asked Question

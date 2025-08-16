@@ -11,7 +11,7 @@ const Navbar = () => {
   const { user, logOut } = useAuth();
   const navigate = useNavigate();
   const [role] = useRole();
-  
+
   const navLinks = (
     <>
       <li>
@@ -50,7 +50,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-gray-100 shadow-sm fixed top-0 left-0 z-10">
+    <div className="navbar bg-base-100 px-2 md:px-7 shadow-sm fixed top-0 left-0 z-10">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} className="lg:hidden mr-1">
@@ -72,7 +72,10 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
 
-      <div className="navbar-end">
+      <div className="navbar-end space-x-2">
+        
+
+        {/* user icon */}
         {user ? (
           <Menu as="div" className="relative inline-block text-left ">
             <Menu.Button className="flex items-center focus:outline-none">
@@ -122,6 +125,60 @@ const Navbar = () => {
             Join Us
           </Link>
         )}
+
+        {/* theme toggle button */}
+        <label className="toggle text-base-content mr-3">
+          <input
+            type="checkbox"
+            value="dark"
+            className="theme-controller"
+            onChange={(e) => {
+              const newTheme = e.target.checked ? "dark" : "light";
+              document.documentElement.setAttribute("data-theme", newTheme);
+              localStorage.setItem("theme", newTheme);
+            }}
+          />
+
+          <svg
+            aria-label="sun"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <g
+              strokeLinejoin="round"
+              strokeLinecap="round"
+              strokeWidth="2"
+              fill="none"
+              stroke="currentColor"
+            >
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2"></path>
+              <path d="M12 20v2"></path>
+              <path d="m4.93 4.93 1.41 1.41"></path>
+              <path d="m17.66 17.66 1.41 1.41"></path>
+              <path d="M2 12h2"></path>
+              <path d="M20 12h2"></path>
+              <path d="m6.34 17.66-1.41 1.41"></path>
+              <path d="m19.07 4.93-1.41 1.41"></path>
+            </g>
+          </svg>
+
+          <svg
+            aria-label="moon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <g
+              strokeLinejoin="round"
+              strokeLinecap="round"
+              strokeWidth="2"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+            </g>
+          </svg>
+        </label>
       </div>
     </div>
   );

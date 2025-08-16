@@ -21,7 +21,7 @@ const AdminProfile = () => {
     return <Loading></Loading>;
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white shadow rounded-md">
+    <div className="max-w-3xl mx-auto p-6 bg-base-200 shadow rounded-md">
       <div className="flex flex-col md:flex-row items-center gap-6">
         <img
           src={user?.photoURL}
