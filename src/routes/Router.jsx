@@ -24,6 +24,7 @@ import UpcomingMeals from "../pages/UpcomingMeals";
 import AdminUpcomingMeals from "../pages/dashboardPages/AdminUpcomingMeals";
 import ServeMeal from "../pages/dashboardPages/ServeMeal";
 import ErrorPage from "../pages/ErrorPage";
+import AdminOverview from "../pages/dashboardPages/AdminOverview";
 
 export const router = createBrowserRouter([
     {
@@ -75,6 +76,10 @@ export const router = createBrowserRouter([
             {
                 path: 'admin-profile',
                 Component: AdminProfile
+            },
+            {
+                path:'overview',
+                Component: AdminOverview
             },
             {
                 path:'add-meal',
