@@ -6,7 +6,7 @@ import request from '../assets/images/request.png'
 const HowItWorks = () => {
   return (
     <div className="my-10">
-      <section className="mb-16 px-4 md:px-10 max-w-6xl mx-auto">
+      <section className="mb-16 px-4 md:px-10">
         <h2 className="text-3xl md:text-4xl text-blue-500 font-bold text-center mb-12">
           How It Works
         </h2>

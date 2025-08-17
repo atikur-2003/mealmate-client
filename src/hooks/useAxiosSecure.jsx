@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 
 const axiosSecure = axios.create({
   baseURL: `https://assignment-12-server-bay-tau.vercel.app`,
-  // baseURL: `http://localhost:5000`,
 });
 
 const useAxiosSecure = () => {
