@@ -31,7 +31,7 @@ const AdminUpcomingMeals = () => {
       {/* Table */}
       <div className="overflow-x-auto">
         <table className="w-full table-auto border text-sm">
-          <thead className="bg-slate-200">
+          <thead className="">
             <tr>
               <th className="p-2">Title</th>
               <th className="p-2">Category</th>
@@ -61,7 +61,7 @@ const AdminUpcomingMeals = () => {
               ))
             ) : (
               <tr>
-                <td colSpan="5" className="p-4 text-center text-gray-500">
+                <td colSpan="5" className="p-4 text-center">
                   No upcoming meals found.
                 </td>
               </tr>

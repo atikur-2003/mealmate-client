@@ -1,41 +1,56 @@
 import React from "react";
+import userLogo from '../assets/images/profile.png'
+import money from '../assets/images/money.png'
+import request from '../assets/images/request.png'
 
 const HowItWorks = () => {
   return (
     <div className="my-10">
-      {/* How It Works Section */}
-      <section className="mb-16 px-6 max-w-6xl mx-auto">
+      <section className="mb-16 px-4 md:px-10 max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl text-blue-500 font-bold text-center mb-12">
           How It Works
         </h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="p-8 bg-base-300 rounded-lg shadow-md">
-            <h3 className="text-xl text-blue-500 font-semibold mb-3">
-              Ask for Recommendations
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex flex-col items-center py-7 px-5 bg-base-200 rounded-lg shadow-md">
+            <div className="mb-5">
+              <img src={userLogo} className="w-20" alt="" />
+            </div>
+            <div className="text-center px-5">
+              <h3 className="text-xl text-blue-500 font-semibold mb-3">
+              Create An Account
             </h3>
             <p>
-              Post your query and let our community suggest products based on
-              their personal experience.
+              Create a account using Registration form to enjoy our service properly
             </p>
+            </div>
           </div>
-          <div className="p-8 bg-base-300 rounded-lg shadow-md">
-            <h3 className="text-xl text-blue-500 font-semibold mb-3">
-              Share Your Experience
+          <div className="flex flex-col items-center py-7 px-5 bg-base-200 rounded-lg shadow-md">
+            <div className="mb-5">
+              <img src={money} className="w-20" alt="" />
+            </div>
+            <div className="text-center px-5">
+              <h3 className="text-xl text-blue-500 font-semibold mb-3">
+              Buy A Membership
             </h3>
             <p>
-              Have a favorite product? Recommend it to others and help them make
-              better choices.
+              Choose a membership for using our premium service
             </p>
+            </div>
           </div>
-          <div className="p-8 bg-base-300 rounded-lg shadow-md">
-            <h3 className="text-xl text-blue-500 font-semibold mb-3">
-              Make Informed Decisions
+          <div className="flex flex-col items-center py-7 px-5 bg-base-200 rounded-lg shadow-md">
+            <div className="mb-5">
+              <img src={request} className="w-20" alt="" />
+            </div>
+            <div className="text-center px-5">
+              <h3 className="text-xl text-blue-500 font-semibold mb-3">
+              Request A Meal
             </h3>
             <p>
-              Browse through recommendations, compare options, and pick what’s
-              best for you.
+              Request your favorite meal and enjoy it within some time
             </p>
+            </div>
           </div>
+          
         </div>
       </section>
     </div>

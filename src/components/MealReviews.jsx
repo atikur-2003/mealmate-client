@@ -28,7 +28,7 @@ const MealReviews = () => {
   }
 
   return (
-    <section className="py-8 px-4 md:px-8 max-w-7xl mx-auto">
+    <section className="py-8 px-4 md:px-10 max-w-7xl mx-auto">
       <h2 className="text-2xl text-blue-500 font-bold mb-6 text-center">Meal Reviews By User</h2>
       <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {reviews.map((review) => (
@@ -36,7 +36,7 @@ const MealReviews = () => {
             key={review._id}
             className="bg-base-200 shadow-md rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
           >
-            <div className="p-4">
+            <div className="p-5">
                 <img
               src={review.mealImage}
               alt={review.mealTitle}
@@ -44,7 +44,7 @@ const MealReviews = () => {
             />
             </div>
 
-            <div className="px-5 py-3 flex flex-col justify-between h-full">
+            <div className="px-7 py-3 flex flex-col justify-between h-full">
               <div>
                 <h3 className="text-xl text-blue-500 font-semibold mb-2">
                   {review.mealTitle}
@@ -67,7 +67,7 @@ const MealReviews = () => {
                 </p>
                 <Link
                 to={`/meal/${review.mealId}`}
-                className="mt-3 inline-block px-4 py-2 border  border-blue-500 text-blue-500 rounded-lg hover:bg-blue-500 hover:text-white transition"
+                className="mt-3 inline-block px-3 py-2 border  border-blue-500 text-blue-500 rounded-lg hover:bg-blue-500 hover:text-white transition"
               >
                 View Details
               </Link>

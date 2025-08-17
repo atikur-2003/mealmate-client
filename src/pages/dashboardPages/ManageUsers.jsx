@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Loading from "../../components/Loading";
 
 const ManageUsers = () => {
   const [searchEmail, setSearchEmail] = useState("");
@@ -62,17 +63,17 @@ const ManageUsers = () => {
         onChange={(e) => setSearchEmail(e.target.value)}
       />
 
-      {loading && <p>Loading...</p>}
+      {loading && <Loading></Loading>}
       {error && <p className="text-red-500">{error}</p>}
 
       {!loading && users.length === 0 && searchEmail && (
-        <p className="text-gray-500">No users found.</p>
+        <p>No users found.</p>
       )}
 
       {!loading && users.length > 0 && (
         <div className="overflow-x-auto">
-          <table className="w-full border border-gray-300">
-            <thead className="bg-gray-100">
+          <table className="w-full border ">
+            <thead>
               <tr>
                 <th className="p-2 border">#</th>
                 <th className="p-2 border">Email</th>

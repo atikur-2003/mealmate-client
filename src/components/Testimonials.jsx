@@ -34,7 +34,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="my-10 px-4 md:px-8 max-w-6xl mx-auto">
+    <section id="reviews" className="my-10 px-4 md:px-10 max-w-6xl mx-auto">
       <h2 className="text-2xl md:text-3xl text-blue-500 font-bold mb-8 text-center">
         What Our Users Say
       </h2>
@@ -54,7 +54,7 @@ const Testimonials = () => {
 
             {/* Content */}
             <div>
-              <h3 className="text-lg font-semibold">{t.name}</h3>
+              <h3 className="text-lg text-blue-500 font-semibold">{t.name}</h3>
               <p className="mt-2">{t.review}</p>
             </div>
           </div>

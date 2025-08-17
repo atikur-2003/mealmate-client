@@ -34,7 +34,7 @@ const MyReviews = () => {
       <h2 className="text-2xl md:text-3xl text-blue-500 font-bold mb-4">My Reviews</h2>
       <div className="overflow-x-auto">
         <table className="table-auto w-full border border-gray-300 text-center">
-          <thead className="bg-gray-100">
+          <thead>
             <tr>
               <th>#</th>
               <th>Meal Title</th>
@@ -78,7 +78,7 @@ const MyReviews = () => {
               ))
             ) : (
               <tr>
-                <td colSpan="5" className="py-4 text-gray-500">
+                <td colSpan="5" className="py-4">
                   No reviews found.
                 </td>
               </tr>

@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 const About = () => {
   return (
-    <section id="about" className="py-12 px-4 md:px-8 max-w-7xl mx-auto">
+    <section id="about" className="py-12 px-4 md:px-10 max-w-7xl mx-auto">
       <div className="grid md:grid-cols-2 gap-8 items-center">
         {/* Left: Image */}
         <div>
@@ -17,13 +17,13 @@ const About = () => {
         {/* Right: Content */}
         <div>
           <h2 className="text-3xl text-blue-500 font-bold mb-4">About Us</h2>
-          <p className="text-gray-600 mb-4">
-            Welcome to our Meal Management System! We are dedicated to making
+          <p className="mb-4">
+            Welcome to <span className="text-blue-500 font-semibold text-lg">MealMate</span> a Meal Management System! We are dedicated to making
             daily meal planning simple, efficient, and enjoyable. Our platform
             helps users organize meals, track preferences, and stay connected
             with the best dining experiences.
           </p>
-          <p className="text-gray-600 mb-6">
+          <p className="mb-6">
             Whether you’re a student, professional, or food enthusiast, our
             service is designed to save you time and provide you with
             convenience. We also value your feedback and continuously improve

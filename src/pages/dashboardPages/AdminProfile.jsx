@@ -30,9 +30,9 @@ const AdminProfile = () => {
         />
         <div>
           <h2 className="text-2xl font-bold">{user?.displayName}</h2>
-          <p className="text-gray-600">{user?.email}</p>
+          <p>{user?.email}</p>
           <p className="mt-2 font-semibold">
-            Meals Added: <span className="text-blue-600">{meals.length}</span>
+            Meals Added : <span className="text-blue-500">{meals.length}</span>
           </p>
         </div>
       </div>

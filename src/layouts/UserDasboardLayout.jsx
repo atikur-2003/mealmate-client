@@ -14,7 +14,7 @@ const UserDashboardLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row bg-gray-50">
+    <div className="min-h-screen flex flex-col md:flex-row">
       {/* Top bar for small devices */}
       <div className="md:hidden flex justify-between items-center px-4 py-3 bg-slate-800 text-white shadow">
         <Link to="/">

@@ -50,14 +50,19 @@ const UpcomingMeals = () => {
 
   if (isLoading) return <Loading></Loading>;
 
-  if (!meals.length) return <h1 className="py-20">no upcoming meal available</h1>;
+  if (!meals.length)
+    return (
+      <div className="pt-30 text-center">
+        <h1 className= "text-2xl text-blue-500 font-bold">No Upcoming Meal Available</h1>
+      </div>
+    );
 
   return (
     <div className="grid py-30 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
       {meals.map((meal) => (
         <div
           key={meal._id}
-          className="bg-white shadow-md rounded-xl p-4 hover:shadow-lg transition"
+          className="bg-base-100 shadow-md rounded-xl p-4 hover:shadow-lg transition"
         >
           <img
             src={meal.image}
@@ -65,17 +70,17 @@ const UpcomingMeals = () => {
             className="w-full h-40 object-cover rounded-lg mb-4"
           />
           <h2 className="text-xl font-semibold mb-2">{meal.title}</h2>
-          <p className="text-sm text-gray-600 mb-1">
+          <p className="text-sm mb-1">
             <strong>Category:</strong> {meal.category}
           </p>
-          <p className="text-sm text-gray-600 mb-1">
+          <p className="text-sm mb-1">
             <strong>Distributor:</strong> {meal.distributorName}
           </p>
-          <p className="text-sm text-gray-600 mb-1">
+          <p className="text-sm mb-1">
             <strong>Scheduled for:</strong>{" "}
             {new Date(meal.postTime).toLocaleString()}
           </p>
-          <p className="text-sm text-gray-600 mb-2">
+          <p className="text-sm mb-2">
             <strong>Likes:</strong> {meal.likes || 0}
           </p>
 

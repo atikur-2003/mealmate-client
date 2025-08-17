@@ -42,7 +42,7 @@ const AllReviews = () => {
       <div className="overflow-x-auto">
         <table className="table-auto w-full border">
           <thead>
-            <tr className="bg-gray-100 text-left">
+            <tr className="text-left">
               <th className="p-2">Meal Title</th>
               <th className="p-2">Likes</th>
               <th className="p-2">Reviews Count</th>
@@ -52,7 +52,7 @@ const AllReviews = () => {
           </thead>
           <tbody>
             {reviews.map((review) => (
-              <tr key={review._id} className="border-t hover:bg-gray-50">
+              <tr key={review._id} className="border-t">
                 <td className="p-2">{review.mealTitle}</td>
                 <td className="p-2">{review.likes}</td>
                 <td className="p-2">{review.reviews_count}</td>

@@ -23,11 +23,11 @@ const MyPayments = () => {
       {isLoading ? (
         <Loading></Loading>
       ) : payments.length === 0 ? (
-        <p className="text-gray-500">You haven't made any payments yet.</p>
+        <p>You haven't made any payments yet.</p>
       ) : (
         <div className="overflow-x-auto">
           <table className="table-auto w-full border border-gray-300 text-center">
-            <thead className="bg-gray-100">
+            <thead>
               <tr>
                 <th>#</th>
                 <th>Package</th>

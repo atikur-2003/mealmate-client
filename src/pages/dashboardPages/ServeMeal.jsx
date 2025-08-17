@@ -48,7 +48,7 @@ const ServeMeal = () => {
 
       <div className="overflow-x-auto">
         <table className="min-w-full table-auto border">
-          <thead className="bg-gray-100 text-left">
+          <thead className="text-left">
             <tr>
               <th className="p-2 border">Title</th>
               <th className="p-2 border">User Email</th>

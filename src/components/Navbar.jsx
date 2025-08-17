@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Navigate, NavLink, useNavigate } from "react-router";
+import { Link, Navigate, NavLink, useLocation, useNavigate } from "react-router";
 import { IoMenu } from "react-icons/io5";
 import { Menu } from "@headlessui/react";
 import useAuth from "../hooks/useAuth";
@@ -12,34 +12,53 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [role] = useRole();
 
+  const location = useLocation();
+
+  const handleHomeClick = (e) => {
+    if (location.pathname === "/") {
+      // Already on Home: just scroll smoothly to top
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    // If not on Home, NavLink will navigate normally and ScrollToTop will run
+  };
+
   const navLinks = (
     <>
       <li>
-        <NavLink to="/" className="font-semibold">
+        <NavLink to="/"  
+        onClick={handleHomeClick}
+        className={({ isActive }) =>
+          `px-3 py-2 rounded-md font-semibold ${isActive ? "text-blue-600 font-semibold" : ""}`
+        }>
           Home
         </NavLink>
       </li>
       {user && (
         <>
           <li>
-            <NavLink to="/meals" className="font-semibold">
+            <NavLink to="/meals" className={({ isActive }) =>
+          `px-3 py-2 rounded-md font-semibold ${isActive ? "text-blue-600 font-semibold" : ""}`
+        }>
               Meals
             </NavLink>
           </li>
           <li>
-            <NavLink to="/upcoming-meals" className="font-semibold">
+            <NavLink to="/upcoming-meals" className={({ isActive }) =>
+          `px-3 py-2 rounded-md font-semibold ${isActive ? "text-blue-600 font-semibold" : ""}`
+        }>
               Upcoming Meals
             </NavLink>
           </li>
         </>
       )}
       <li>
-        <a href="#about" className="font-semibold">
+        <a href="#about" className="font-semibold mt-0.5">
           About Us
         </a>
       </li>
       <li>
-        <a href="#reviews" className="font-semibold">
+        <a href="#reviews" className="font-semibold mt-0.5">
           User Reviews
         </a>
       </li>

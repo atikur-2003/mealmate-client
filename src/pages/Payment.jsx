@@ -26,7 +26,7 @@ const Payment = () => {
         <h2 className="text-2xl md:text-3xl text-blue-500 font-bold text-center mb-2">
         Pay for {selectedPackage.name} Package
       </h2>
-      <p className="text-gray-500 font-medium text-center">Use your card to pay for the package and get the membership package</p>
+      <p className="font-medium text-center">Use your card to pay for the package and get the membership package</p>
       </div>
       <Elements stripe={stripePromise}>
         <PaymentForm selectedPackage={selectedPackage} />

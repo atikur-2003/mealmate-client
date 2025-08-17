@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import Loading from "../components/Loading";
 
 const Meals = () => {
   const [search, setSearch] = useState("");
@@ -26,8 +27,8 @@ const Meals = () => {
   });
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold mb-6">All Meals</h2>
+    <div className="max-w-7xl mx-auto px-4 md:px-10 py-28 ">
+      <h2 className="text-3xl text-blue-500 font-bold mb-7 text-center">All Meals Here</h2>
 
       {/* Filters */}
       <div className="flex flex-col md:flex-row gap-4 mb-6">
@@ -65,7 +66,7 @@ const Meals = () => {
 
       {/* Loading */}
       {isLoading ? (
-        <p className="text-center">Loading meals...</p>
+        <Loading></Loading>
       ) : meals.length === 0 ? (
         <p className="text-center text-gray-500">No meals found.</p>
       ) : (

@@ -50,8 +50,8 @@ const AddMeal = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-xl shadow-md">
-      <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Add New Meal</h2>
+    <div className="max-w-3xl mx-auto bg-base-200 p-8 rounded-xl shadow-md">
+      <h2 className="text-2xl font-bold mb-6">Add New Meal</h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 space-x-2">
         <input {...register("title", { required: true })} placeholder="Meal Title" className="input" />
@@ -70,11 +70,11 @@ const AddMeal = () => {
         <input type="file" {...register("image", { required: true })} accept="image/*" className="input mr-2" />
 
         {/* Distributor Info */}
-        <input value={user?.displayName} readOnly className="input bg-gray-100" />
+        <input value={user?.displayName} readOnly className="input " />
 
-        <input value={user?.email} readOnly className=" input bg-gray-100" />
+        <input value={user?.email} readOnly className=" input " />
 
-        <button type="submit" className="border border-blue-500 text-blue-500 px-6 py-2 rounded-lg cursor-pointer ">
+        <button type="submit" className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-6 py-2 rounded-lg cursor-pointer transition">
           Add Meal
         </button>
       </form>

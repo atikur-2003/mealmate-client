@@ -33,7 +33,7 @@ const RequestedMeals = () => {
 
       <div className="overflow-x-auto">
         <table className="table-auto w-full border">
-          <thead className="bg-gray-100">
+          <thead>
             <tr>
               <th className="p-2 border">#</th>
               <th className="p-2 border">Title</th>

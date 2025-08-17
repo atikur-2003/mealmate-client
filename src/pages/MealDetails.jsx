@@ -116,7 +116,7 @@ const MealDetails = () => {
   if (isLoading) return <Loading></Loading>;
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-26">
+    <div className="max-w-6xl mx-auto px-4 md:px-10 py-26">
       <div className="grid md:grid-cols-2 gap-10">
         <img
           src={meal.image}
@@ -128,7 +128,7 @@ const MealDetails = () => {
           <h2 className="text-3xl text-blue-500 font-bold mb-2">
             {meal.title}
           </h2>
-          <p className="text-sm text-gray-600 mb-2">
+          <p className="text-sm mb-2">
             Posted: {dayjs(meal.postTime).format("MMMM D, YYYY h:mm A")}
           </p>
           <p className="mb-2">
@@ -189,11 +189,11 @@ const MealDetails = () => {
           {reviews.map((review) => (
             <div
               key={review._id}
-              className="border p-4 rounded-md bg-white dark:bg-slate-800"
+              className="shadow-lg p-4 rounded-md bg-base-200"
             >
               <p className="font-semibold">{review.reviewer}</p>
               <p className="">{review.review}</p>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm">
                 {dayjs(review.time).format("MMM D, h:mm A")}
               </p>
               <p>{review.comment}</p>
