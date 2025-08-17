@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 const About = () => {
   return (
-    <section id="about" className="py-12 px-4 max-w-7xl mx-auto">
+    <section id="about" className="py-12 px-4 md:px-8 max-w-7xl mx-auto">
       <div className="grid md:grid-cols-2 gap-8 items-center">
         {/* Left: Image */}
         <div>
@@ -16,7 +16,7 @@ const About = () => {
 
         {/* Right: Content */}
         <div>
-          <h2 className="text-3xl font-bold mb-4">About Us</h2>
+          <h2 className="text-3xl text-blue-500 font-bold mb-4">About Us</h2>
           <p className="text-gray-600 mb-4">
             Welcome to our Meal Management System! We are dedicated to making
             daily meal planning simple, efficient, and enjoyable. Our platform
@@ -30,7 +30,7 @@ const About = () => {
             based on your suggestions.
           </p>
           <Link to='/about-details'>
-            <button className="bg-blue-500 text-white py-2 px-6 rounded-lg shadow hover:bg-blue-600 transition">
+            <button className="px-4 py-2 border border-blue-500 text-blue-500 rounded-xl hover:bg-blue-500 hover:text-white cursor-pointer transition">
               Learn More
             </button>
           </Link>
