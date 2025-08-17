@@ -73,6 +73,7 @@ const MealDetails = () => {
     mutationFn: async () => {
       return axiosSecure.post("/reviews", {
         mealId: id,
+        mealImage : meal.image,
         mealTitle: meal.title,
         reviewer: user?.displayName,
         reviewerEmail: user?.email,
@@ -191,6 +192,7 @@ const MealDetails = () => {
               className="border p-4 rounded-md bg-white dark:bg-slate-800"
             >
               <p className="font-semibold">{review.reviewer}</p>
+              <p className="">{review.review}</p>
               <p className="text-sm text-gray-600">
                 {dayjs(review.time).format("MMM D, h:mm A")}
               </p>

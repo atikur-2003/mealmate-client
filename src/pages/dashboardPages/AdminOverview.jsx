@@ -42,9 +42,9 @@ const AdminOverview = () => {
   ];
 
   const barData = [
-  { name: "Stats", Revenue: stats.totalRevenue, Meals: stats.totalMeals },
-];
-
+    { name: "Revenue", value: stats.totalRevenue },
+    { name: "Meals", value: stats.totalMeals },
+  ];
 
   return (
     <div className="p-3 md:px-7">

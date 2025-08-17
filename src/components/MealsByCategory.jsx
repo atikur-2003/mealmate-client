@@ -53,7 +53,7 @@ const MealsByCategory = () => {
           .map((meal) => (
             <div
               key={meal._id}
-              className="rounded-lg overflow-hidden shadow-lg bg-base-200 p-5"
+              className="rounded-lg overflow-hidden shadow-lg bg-base-200 p-5 hover:shadow-xl transition-shadow duration-300"
             >
               <img
                 src={meal.image}
@@ -68,7 +68,7 @@ const MealsByCategory = () => {
                 <p className="text-lg font-bold text-primary">৳{meal.price}</p>
                 <Link
                   to={`/meal/${meal._id}`}
-                  className="inline-block mt-3 px-4 py-2 border  border-blue-500 text-blue-500 rounded-lg hover:bg-blue-500 hover:text-white"
+                  className="inline-block mt-3 px-4 py-2 border  border-blue-500 text-blue-500 rounded-lg hover:bg-blue-500 hover:text-white transition"
                 >
                   View Details
                 </Link>
