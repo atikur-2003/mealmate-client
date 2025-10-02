@@ -1,11 +1,18 @@
 import React from "react";
-import userLogo from '../assets/images/profile.png'
-import money from '../assets/images/money.png'
-import request from '../assets/images/request.png'
+import userLogo from "../assets/images/profile.png";
+import money from "../assets/images/money.png";
+import request from "../assets/images/request.png";
+import { motion } from "framer-motion";
 
 const HowItWorks = () => {
   return (
-    <div className="my-10">
+    <motion.div
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeIn" }}
+      viewport={{ once: true }}
+      className="my-10"
+    >
       <section className="mb-16 px-4 md:px-10">
         <h2 className="text-3xl md:text-4xl text-blue-500 font-bold text-center mb-12">
           How It Works
@@ -17,11 +24,12 @@ const HowItWorks = () => {
             </div>
             <div className="text-center px-5">
               <h3 className="text-xl text-blue-500 font-semibold mb-3">
-              Create An Account
-            </h3>
-            <p>
-              Create a account using Registration form to enjoy our service properly
-            </p>
+                Create An Account
+              </h3>
+              <p>
+                Create a account using Registration form to enjoy our service
+                properly
+              </p>
             </div>
           </div>
           <div className="flex flex-col items-center py-7 px-5 bg-base-200 rounded-lg shadow-md">
@@ -30,11 +38,9 @@ const HowItWorks = () => {
             </div>
             <div className="text-center px-5">
               <h3 className="text-xl text-blue-500 font-semibold mb-3">
-              Buy A Membership
-            </h3>
-            <p>
-              Choose a membership for using our premium service
-            </p>
+                Buy A Membership
+              </h3>
+              <p>Choose a membership for using our premium service</p>
             </div>
           </div>
           <div className="flex flex-col items-center py-7 px-5 bg-base-200 rounded-lg shadow-md">
@@ -43,17 +49,14 @@ const HowItWorks = () => {
             </div>
             <div className="text-center px-5">
               <h3 className="text-xl text-blue-500 font-semibold mb-3">
-              Request A Meal
-            </h3>
-            <p>
-              Request your favorite meal and enjoy it within some time
-            </p>
+                Request A Meal
+              </h3>
+              <p>Request your favorite meal and enjoy it within some time</p>
             </div>
           </div>
-          
         </div>
       </section>
-    </div>
+    </motion.div>
   );
 };
 

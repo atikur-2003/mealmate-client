@@ -1,5 +1,11 @@
 import React from "react";
-import { Link, Navigate, NavLink, useLocation, useNavigate } from "react-router";
+import {
+  Link,
+  Navigate,
+  NavLink,
+  useLocation,
+  useNavigate,
+} from "react-router";
 import { IoMenu } from "react-icons/io5";
 import { Menu } from "@headlessui/react";
 import useAuth from "../hooks/useAuth";
@@ -26,41 +32,69 @@ const Navbar = () => {
   const navLinks = (
     <>
       <li>
-        <NavLink to="/"  
-        onClick={handleHomeClick}
-        className={({ isActive }) =>
-          `px-3 py-2 rounded-md font-semibold ${isActive ? "text-blue-600 font-semibold" : ""}`
-        }>
+        <NavLink
+          to="/"
+          onClick={handleHomeClick}
+          className={({ isActive }) =>
+            `px-3 py-2 rounded-md font-semibold ${
+              isActive ? "text-blue-600 font-semibold" : ""
+            }`
+          }
+        >
           Home
         </NavLink>
       </li>
       {user && (
         <>
           <li>
-            <NavLink to="/meals" className={({ isActive }) =>
-          `px-3 py-2 rounded-md font-semibold ${isActive ? "text-blue-600 font-semibold" : ""}`
-        }>
+            <NavLink
+              to="/meals"
+              className={({ isActive }) =>
+                `px-3 py-2 rounded-md font-semibold ${
+                  isActive ? "text-blue-600 font-semibold" : ""
+                }`
+              }
+            >
               Meals
             </NavLink>
           </li>
           <li>
-            <NavLink to="/upcoming-meals" className={({ isActive }) =>
-          `px-3 py-2 rounded-md font-semibold ${isActive ? "text-blue-600 font-semibold" : ""}`
-        }>
+            <NavLink
+              to="/upcoming-meals"
+              className={({ isActive }) =>
+                `px-3 py-2 rounded-md font-semibold ${
+                  isActive ? "text-blue-600 font-semibold" : ""
+                }`
+              }
+            >
               Upcoming Meals
             </NavLink>
           </li>
         </>
       )}
       <li>
-        <a href="#about" className="font-semibold mt-0.5">
+        <NavLink
+          to="/about-page"
+          className={({ isActive }) =>
+            `px-3 py-2 rounded-md font-semibold ${
+              isActive ? "text-blue-600 font-semibold" : ""
+            }`
+          }
+        >
           About Us
-        </a>
+        </NavLink>
       </li>
       <li>
-        <a href="#reviews" className="font-semibold mt-0.5">
+        <NavLink
+          to="/user-review"
+          className={({ isActive }) =>
+            `px-3 py-2 rounded-md font-semibold ${
+              isActive ? "text-blue-600 font-semibold" : ""
+            }`
+          }
+        >
           User Reviews
-        </a>
+        </NavLink>
       </li>
     </>
   );

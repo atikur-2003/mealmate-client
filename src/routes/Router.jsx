@@ -26,6 +26,8 @@ import ServeMeal from "../pages/dashboardPages/ServeMeal";
 import ErrorPage from "../pages/ErrorPage";
 import AdminOverview from "../pages/dashboardPages/AdminOverview";
 import AboutDetails from "../pages/AboutDetails";
+import AboutPage from "../pages/AboutPage";
+import UserReviews from "../pages/UserReviews";
 
 export const router = createBrowserRouter([
     {
@@ -52,9 +54,14 @@ export const router = createBrowserRouter([
                 path: 'upcoming-meals',
                 Component: UpcomingMeals
             },
+            
             {
-                path: 'about-details',
-                Component: AboutDetails
+                path: 'about-page',
+                Component: AboutPage
+            },
+            {
+                path: 'user-review',
+                Component: UserReviews
             }
             
         ]

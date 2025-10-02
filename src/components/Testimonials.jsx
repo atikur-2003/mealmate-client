@@ -1,6 +1,6 @@
 import React from "react";
+import { motion } from "framer-motion";
 
-// Fake testimonials data
 const testimonials = [
   {
     id: 1,
@@ -34,7 +34,14 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section id="reviews" className="my-10 px-4">
+    <motion.section
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeIn" }}
+      viewport={{ once: true }}
+      id="reviews"
+      className="my-10 px-4"
+    >
       <h2 className="text-2xl md:text-3xl text-blue-500 font-bold mb-8 text-center">
         What Our Users Say
       </h2>
@@ -60,7 +67,7 @@ const Testimonials = () => {
           </div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 };
 
