@@ -26,7 +26,6 @@ const Navbar = () => {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
-    // If not on Home, NavLink will navigate normally and ScrollToTop will run
   };
 
   const navLinks = (
@@ -136,7 +135,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{navLinks}</ul>
+        <ul className="menu menu-horizontal">{navLinks}</ul>
       </div>
 
       <div className="navbar-end space-x-2">

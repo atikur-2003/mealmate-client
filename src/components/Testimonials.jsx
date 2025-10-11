@@ -40,7 +40,7 @@ const Testimonials = () => {
       transition={{ duration: 0.8, ease: "easeIn" }}
       viewport={{ once: true }}
       id="reviews"
-      className="my-10 px-4"
+      className="my-10 px-4 md:px-10"
     >
       <h2 className="text-2xl md:text-3xl text-blue-500 font-bold mb-8 text-center">
         What Our Users Say
