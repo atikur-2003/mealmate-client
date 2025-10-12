@@ -6,19 +6,19 @@ import { motion } from "framer-motion";
 
 const HowItWorks = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 80 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeIn" }}
-      viewport={{ once: true }}
-      className="my-10"
-    >
+    <div className="my-10">
       <section className="mb-16 px-4 md:px-10">
         <h2 className="text-3xl md:text-4xl text-blue-500 font-bold text-center mb-12">
           How It Works
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="flex flex-col items-center py-7 px-5 bg-base-200 rounded-lg shadow-md">
+          <motion.div
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeIn" }}
+            viewport={{ once: true }}
+            className="flex flex-col items-center py-7 px-5 bg-base-200 rounded-lg shadow-md"
+          >
             <div className="mb-5">
               <img src={userLogo} className="w-20" alt="" />
             </div>
@@ -31,8 +31,14 @@ const HowItWorks = () => {
                 properly
               </p>
             </div>
-          </div>
-          <div className="flex flex-col items-center py-7 px-5 bg-base-200 rounded-lg shadow-md">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeIn" }}
+            viewport={{ once: true }}
+            className="flex flex-col items-center py-7 px-5 bg-base-200 rounded-lg shadow-md"
+          >
             <div className="mb-5">
               <img src={money} className="w-20" alt="" />
             </div>
@@ -42,8 +48,14 @@ const HowItWorks = () => {
               </h3>
               <p>Choose a membership for using our premium service</p>
             </div>
-          </div>
-          <div className="flex flex-col items-center py-7 px-5 bg-base-200 rounded-lg shadow-md">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeIn" }}
+            viewport={{ once: true }}
+            className="flex flex-col items-center py-7 px-5 bg-base-200 rounded-lg shadow-md"
+          >
             <div className="mb-5">
               <img src={request} className="w-20" alt="" />
             </div>
@@ -53,10 +65,10 @@ const HowItWorks = () => {
               </h3>
               <p>Request your favorite meal and enjoy it within some time</p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
-    </motion.div>
+    </div>
   );
 };
 

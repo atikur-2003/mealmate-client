@@ -31,8 +31,8 @@ const MealsByCategory = () => {
   return (
     <section className="my-16 px-4 md:px-10">
       <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, y: 80 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeIn" }}
         viewport={{ once: true }}
       >
@@ -59,17 +59,15 @@ const MealsByCategory = () => {
       </motion.div>
 
       {/* Meals */}
-      <motion.div
-        initial={{ opacity: 0, x: 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: "easeIn" }}
-        viewport={{ once: true }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-      >
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filterMeals(selected)
           .slice(0, 3)
           .map((meal) => (
-            <div
+            <motion.div
+              initial={{ opacity: 0, y: 80 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeIn" }}
+              viewport={{ once: true }}
               key={meal._id}
               className="rounded-lg overflow-hidden shadow-lg bg-base-200 p-5 hover:shadow-xl transition-shadow duration-300"
             >
@@ -96,9 +94,9 @@ const MealsByCategory = () => {
                   View Details
                 </Link>
               </div>
-            </div>
+            </motion.div>
           ))}
-      </motion.div>
+      </div>
     </section>
   );
 };

@@ -34,21 +34,18 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 80 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeIn" }}
-      viewport={{ once: true }}
-      id="reviews"
-      className="my-10 px-4 md:px-10"
-    >
+    <section id="reviews" className="my-10 px-4 md:px-10">
       <h2 className="text-2xl md:text-3xl text-blue-500 font-bold mb-8 text-center">
         What Our Users Say
       </h2>
 
       <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2">
         {testimonials.map((t) => (
-          <div
+          <motion.div
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeIn" }}
+            viewport={{ once: true }}
             key={t.id}
             className="flex items-start bg-base-200 shadow-md rounded-lg p-6 hover:shadow-xl transition-shadow duration-300"
           >
@@ -64,10 +61,10 @@ const Testimonials = () => {
               <h3 className="text-lg text-blue-500 font-semibold">{t.name}</h3>
               <p className="mt-2">{t.review}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </motion.section>
+    </section>
   );
 };
 

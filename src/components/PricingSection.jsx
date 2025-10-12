@@ -32,30 +32,29 @@ const packages = [
 const PricingSection = () => {
   return (
     <div className="py-16 px-4 md:px-10 bg-base-100">
-      <div className="max-w-7xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeIn" }}
-          viewport={{ once: true }}
-        >
+      <motion.div
+        initial={{ opacity: 0, y: 80 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeIn" }}
+        viewport={{ once: true }}
+        className="max-w-7xl mx-auto text-center"
+      >
+        <div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-blue-500">
             Choose Your Plan
           </h2>
           <p className="text-lg font-medium mb-10">
             Upgrade your hostel experience with a premium membership.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeIn" }}
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {packages.map((pkg) => (
-            <div
+            <motion.div
+              initial={{ opacity: 0, y: 80 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeIn" }}
+              viewport={{ once: true }}
               key={pkg.name}
               className={`rounded-2xl bg-base-200 shadow-lg p-6`}
             >
@@ -78,10 +77,10 @@ const PricingSection = () => {
               >
                 Get {pkg.name}
               </Link>
-            </div>
+            </motion.div>
           ))}
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
     </div>
   );
 };

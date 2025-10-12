@@ -8,18 +8,12 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { motion } from "framer-motion";
 
-
 const Banner = () => {
   return (
     <div className="w-full bg-base-100 pt-30 pb-10 px-4 md:px-10">
       <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-10">
         {/* Left Content */}
-        <motion.div
-        initial={{opacity:0, x:-50}}
-        whileInView={{opacity:1, x:0}}
-        transition={{duration:0.8, ease:'easeIn'}}
-        viewport={{once:true}}
-        className="md:w-1/2 space-y-6">
+        <div className="md:w-1/2 space-y-6">
           <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold">
             Welcome to <span className="text-blue-500">MealMate</span>
           </h1>
@@ -39,40 +33,35 @@ const Banner = () => {
               Search
             </button>
           </div>
-        </motion.div>
+        </div>
 
         {/* Right Image */}
-        <motion.div
-        initial={{opacity:0, x:50}}
-        whileInView={{opacity:1, x:0}}
-        transition={{duration:0.8, ease:'easeIn'}}
-        viewport={{once:true}}
-        className="md:w-1/2 w-full">
-         <Carousel
+        <div className="md:w-1/2 w-full">
+          <Carousel
             autoPlay
             infiniteLoop
             showThumbs={false}
             showStatus={false}
             interval={3500}
             showArrows={false}
-         >
+          >
             <div>
-                <img className="rounded-xl" src={bannerImg1} alt="" />
+              <img className="rounded-xl" src={bannerImg1} alt="" />
             </div>
             <div>
-                <img className="rounded-xl" src={bannerImg2} alt="" />
+              <img className="rounded-xl" src={bannerImg2} alt="" />
             </div>
             <div>
-                <img className="rounded-xl" src={bannerImg3} alt="" />
+              <img className="rounded-xl" src={bannerImg3} alt="" />
             </div>
             <div>
-                <img className="rounded-xl" src={bannerImg4} alt="" />
+              <img className="rounded-xl" src={bannerImg4} alt="" />
             </div>
             <div>
-                <img className="rounded-xl" src={bannerImg5} alt="" />
+              <img className="rounded-xl" src={bannerImg5} alt="" />
             </div>
-         </Carousel>
-        </motion.div>
+          </Carousel>
+        </div>
       </div>
     </div>
   );

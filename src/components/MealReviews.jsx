@@ -29,19 +29,17 @@ const MealReviews = () => {
   }
 
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 80 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeIn" }}
-      viewport={{ once: true }}
-      className="py-8 px-4 md:px-10 max-w-7xl mx-auto"
-    >
-      <h2 className="text-2xl text-blue-500 font-bold mb-6 text-center">
+    <section className="py-8 px-4 md:px-10 max-w-7xl mx-auto">
+      <h2 className="text-2xl md:text-3xl text-blue-500 font-bold mb-6 text-center">
         Meal Reviews By User
       </h2>
       <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {reviews.map((review) => (
-          <div
+          <motion.div
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeIn" }}
+            viewport={{ once: true }}
             key={review._id}
             className="bg-base-200 shadow-md rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
           >
@@ -80,10 +78,10 @@ const MealReviews = () => {
                 </Link>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </motion.section>
+    </section>
   );
 };
 

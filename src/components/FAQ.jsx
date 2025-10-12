@@ -1,8 +1,15 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const FAQ = () => {
   return (
-    <div className="bg-base-100 px-2 md:px-10 py-10">
+    <motion.div
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeIn" }}
+      viewport={{ once: true }}
+      className="bg-base-100 px-2 md:px-10 py-10"
+    >
       <div className="text-center mb-10">
         <h1 className="text-xl md:text-3xl font-bold text-blue-500">
           Frequently Asked Question
@@ -60,7 +67,7 @@ const FAQ = () => {
           can publish them to the main meal list once they gather 10 likes.
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
