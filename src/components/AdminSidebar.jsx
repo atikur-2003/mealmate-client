@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, } from "react-router";
 import {
   FaUsers,
   FaPlus,
@@ -8,11 +8,15 @@ import {
   FaConciergeBell,
   FaCalendarAlt,
 } from "react-icons/fa";
+import { LuLogOut } from "react-icons/lu";
 import { GrOverview } from "react-icons/gr";
 import LogoTitle from "../shared/LogoTitle";
 import logo from "../assets/logo.png";
 
 const AdminSidebar = () => {
+
+  
+
   return (
     <aside className="w-full md:w-64 h-full bg-slate-800 text-white fixed md:static top-0 left-0 z-50">
       <Link to="/">
@@ -74,6 +78,7 @@ const AdminSidebar = () => {
         >
           <FaCalendarAlt /> Upcoming Meals
         </NavLink>
+
       </nav>
     </aside>
   );
