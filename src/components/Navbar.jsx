@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Link,
   Navigate,
@@ -17,7 +17,6 @@ const Navbar = () => {
   const { user, logOut } = useAuth();
   const navigate = useNavigate();
   const [role] = useRole();
-
   const location = useLocation();
 
   const handleHomeClick = (e) => {
@@ -28,6 +27,7 @@ const Navbar = () => {
     }
   };
 
+  // navlinks data
   const navLinks = (
     <>
       <li>
@@ -44,20 +44,19 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-            <NavLink
-              to="/meals"
-              className={({ isActive }) =>
-                `px-3 py-2 rounded-md font-semibold ${
-                  isActive ? "text-blue-600 font-semibold" : ""
-                }`
-              }
-            >
-              Meals
-            </NavLink>
-          </li>
+        <NavLink
+          to="/meals"
+          className={({ isActive }) =>
+            `px-3 py-2 rounded-md font-semibold ${
+              isActive ? "text-blue-600 font-semibold" : ""
+            }`
+          }
+        >
+          Meals
+        </NavLink>
+      </li>
       {user && (
         <>
-          
           <li>
             <NavLink
               to="/upcoming-meals"
@@ -101,7 +100,7 @@ const Navbar = () => {
           <NavLink
             to={
               role === "admin"
-                ? "/dashboard/admin/admin-profile"
+                ? "/dashboard/admin/overview"
                 : "/dashboard/user/my-profile"
             }
             className={({ isActive }) =>
@@ -117,6 +116,7 @@ const Navbar = () => {
     </>
   );
 
+  // logout handle function
   const handleLogout = () => {
     logOut()
       .then(() => {
@@ -127,7 +127,7 @@ const Navbar = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        navigate("/login");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
@@ -137,9 +137,10 @@ const Navbar = () => {
   return (
     <div className="navbar bg-base-100 px-2 md:px-7 shadow-sm fixed top-0 left-0 z-10">
       <div className="navbar-start">
+        {/* small device menu */}
         <div className="dropdown">
           <div tabIndex={0} className="lg:hidden mr-1">
-            <IoMenu size={20}></IoMenu>
+            <IoMenu size={25}></IoMenu>
           </div>
           <ul
             tabIndex={0}
@@ -149,9 +150,12 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <Link to="/">
-          <LogoTitle></LogoTitle>
-        </Link>
+        {/* logo and large device menu*/}
+        <div>
+          <Link to="/">
+            <LogoTitle></LogoTitle>
+          </Link>
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal">{navLinks}</ul>
@@ -159,7 +163,7 @@ const Navbar = () => {
 
       <div className="navbar-end space-x-2">
         {/* theme toggle button */}
-        <label className="toggle text-base-content mr-3">
+        <label className="toggle text-base-content mr-5 border border-blue-500">
           <input
             type="checkbox"
             value="dark"
@@ -219,7 +223,7 @@ const Navbar = () => {
               <img
                 src={user.photoURL}
                 alt="User"
-                className="w-10 h-10 rounded-full cursor-pointer"
+                className="w-10 h-10 rounded-full cursor-pointer border border-blue-500"
               />
             </Menu.Button>
 
@@ -232,7 +236,7 @@ const Navbar = () => {
                 <Link
                   to={
                     role === "admin"
-                      ? "/dashboard/admin/admin-profile"
+                      ? "/dashboard/admin/overview"
                       : "/dashboard/user/my-profile"
                   }
                 >

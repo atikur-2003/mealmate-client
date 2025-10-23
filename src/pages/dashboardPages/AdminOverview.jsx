@@ -49,25 +49,25 @@ const AdminOverview = () => {
   return (
     <div className="p-3 md:px-7">
       {/* Stats Cards (simple divs) */}
-      <div className="flex flex-col md:flex-row gap-3 md:gap-10 mb-10">
-        <div className="bg-base-200 flex gap-5 md:flex-col lg:flex-row shadow-md rounded-xl p-4">
-          <img src={meals} className="w-16" alt="" />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-10 mb-10">
+        <div className="bg-base-200 flex gap-5 md:gap-7 md:flex-col lg:flex-row items-center shadow-md rounded-xl p-4">
+          <img src={meals} className="w-20" alt="" />
           <div>
             <h2 className="text-lg font-bold">Total Meals</h2>
             <p className="text-xl">{stats.totalMeals}</p>
           </div>
         </div>
 
-        <div className="bg-base-200 flex gap-5 md:flex-col lg:flex-row shadow-md rounded-xl p-4">
-          <img src={userLogo} className="w-16" alt="" />
+        <div className="bg-base-200 flex gap-5 md:gap-7 md:flex-col lg:flex-row items-center shadow-md rounded-xl p-4">
+          <img src={userLogo} className="w-20" alt="" />
           <div>
             <h2 className="text-lg font-bold">Total Users</h2>
             <p className="text-xl">{stats.totalUsers}</p>
           </div>
         </div>
 
-        <div className="bg-base-200 flex gap-5 md:gap-3 md:flex-col  lg:flex-row shadow-md rounded-xl p-4">
-          <img src={profit} className="w-16" alt="" />
+        <div className="bg-base-200 flex gap-5 md:gap-7 md:flex-col items-center lg:flex-row shadow-md rounded-xl p-4">
+          <img src={profit} className="w-20" alt="" />
           <div>
             <h2 className="text-lg font-bold">Revenue</h2>
             <p className="text-xl">$ {stats.totalRevenue}</p>
