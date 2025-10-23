@@ -92,7 +92,7 @@ const Register = () => {
               <input
                 type="text"
                 {...register("name", { required: true })}
-                className="input"
+                className="input focus:outline-none focus:border-blue-500"
                 placeholder="Enter Your Name"
               />
 
@@ -104,7 +104,7 @@ const Register = () => {
               <input
                 onChange={handleUploadImage}
                 type="file"
-                className="input"
+                className="input focus:outline-none focus:border-blue-500"
                 placeholder="Enter Profile Picture"
               />
 
@@ -112,7 +112,7 @@ const Register = () => {
               <input
                 type="email"
                 {...register("email", { required: true })}
-                className="input"
+                className="input focus:outline-none focus:border-blue-500"
                 placeholder="Enter Email"
               />
 
@@ -125,7 +125,7 @@ const Register = () => {
                 <input
                 type={showPass ? "text" : "password"}
                 {...register("password", { required: true, minLength: 6, pattern: /(?=.*[a-z])(?=.*[A-Z])[a-zA-Z]/})}
-                className="input"
+                className="input focus:outline-none focus:border-blue-500"
                 placeholder="Enter Password"
               />
               <button

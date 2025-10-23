@@ -43,9 +43,7 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-      {user && (
-        <>
-          <li>
+      <li>
             <NavLink
               to="/meals"
               className={({ isActive }) =>
@@ -57,6 +55,9 @@ const Navbar = () => {
               Meals
             </NavLink>
           </li>
+      {user && (
+        <>
+          
           <li>
             <NavLink
               to="/upcoming-meals"
@@ -95,6 +96,24 @@ const Navbar = () => {
           User Reviews
         </NavLink>
       </li>
+      {user && (
+        <li>
+          <NavLink
+            to={
+              role === "admin"
+                ? "/dashboard/admin/admin-profile"
+                : "/dashboard/user/my-profile"
+            }
+            className={({ isActive }) =>
+              `px-3 py-2 rounded-md font-semibold ${
+                isActive ? "text-blue-600 font-semibold" : ""
+              }`
+            }
+          >
+            Dashboard
+          </NavLink>
+        </li>
+      )}
     </>
   );
 

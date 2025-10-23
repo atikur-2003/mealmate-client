@@ -25,7 +25,6 @@ import AdminUpcomingMeals from "../pages/dashboardPages/AdminUpcomingMeals";
 import ServeMeal from "../pages/dashboardPages/ServeMeal";
 import ErrorPage from "../pages/ErrorPage";
 import AdminOverview from "../pages/dashboardPages/AdminOverview";
-import AboutDetails from "../pages/AboutDetails";
 import AboutPage from "../pages/AboutPage";
 import UserReviews from "../pages/UserReviews";
 
@@ -40,7 +39,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'meal/:id',
-                Component: MealDetails
+                element: <PrivateRoute><MealDetails></MealDetails></PrivateRoute>
             },
             {
                 path: 'meals',

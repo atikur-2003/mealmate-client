@@ -50,20 +50,22 @@ const Login = () => {
     setError("");
     login(ADMIN_EMAIL, ADMIN_PASSWORD)
       .then((result) => {
-        console.log(result);
+        console.log(result.user);
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: "Admin Login Successful",
+          title: "Login Successful",
           showConfirmButton: false,
           timer: 1500,
         });
-        navigate('/');
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
+        console.log(error.message);
         setError(error.message);
       });
   };
+
 
   return (
     <div className="hero bg-base-200 min-h-screen">
@@ -104,7 +106,7 @@ const Login = () => {
                   <input
                     type="email"
                     {...register("email", { required: true })}
-                    className="input w-full"
+                    className="input w-full focus:outline-none focus:border-blue-500"
                     placeholder="Enter Email"
                   />
 
@@ -122,8 +124,8 @@ const Login = () => {
                         required: true,
                         minLength: 6,
                       })}
-                      className="input w-full"
-                      placeholder="Enter Password"
+                      className="input w-full focus:outline-none focus:border-blue-500"
+                      placeholder="Enter Password "
                     />
                     <button
                       onClick={() => {
@@ -165,15 +167,13 @@ const Login = () => {
 
           {activeTab === "admin" && (
             <>
-              <form>
                 <fieldset className="fieldset">
                   <label className="label text-lg font-semibold">Email</label>
                   <input
                     type="email"
                     value={ADMIN_EMAIL}
                     readOnly
-                    disabled
-                    className="input w-full"
+                    className="input w-full focus:outline-none focus:border-blue-500"
                     placeholder="Enter Email"
                   />
 
@@ -185,8 +185,7 @@ const Login = () => {
                       type={showPass ? "text" : "password"}
                       value={ADMIN_PASSWORD}
                       readOnly
-                      disabled
-                      className="input w-full"
+                      className="input w-full focus:outline-none focus:border-blue-500"
                       placeholder="Enter Password"
                     />
                     <button
@@ -203,14 +202,10 @@ const Login = () => {
                     </button>
                   </div>
 
-                  <button
-                    onClick={handleAdminLogin}
-                    className="btn border mt-4 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white"
-                  >
+                  <button onClick={handleAdminLogin} className="btn border mt-4 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white">
                     Login
                   </button>
                 </fieldset>
-              </form>
             </>
           )}
         </div>
