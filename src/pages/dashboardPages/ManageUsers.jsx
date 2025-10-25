@@ -3,22 +3,42 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Loading from "../../components/Loading";
 
 const ManageUsers = () => {
-  const [searchEmail, setSearchEmail] = useState("");
+  // const [searchEmail, setSearchEmail] = useState("");
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
-    if (!searchEmail) {
-      setUsers([]);
-      return;
-    }
+    // if (!searchEmail) {
+    //   setUsers([]);
+    //   return;
+    // }
 
-    const delayDebounce = setTimeout(() => {
+    // const delayDebounce = setTimeout(() => {
+    //   setLoading(true);
+    //   axiosSecure
+    //     .get(`/users`)
+    //     .then((res) => {
+    //       setUsers(res.data || []);
+    //       setError("");
+    //     })
+    //     .catch((err) => {
+    //       console.error("Error fetching users:", err);
+    //       setError("Failed to fetch users.");
+    //       setUsers([]);
+    //     })
+    //     .finally(() => {
+    //       setLoading(false);
+    //     });
+    // }, 500);
+
+    // return () => clearTimeout(delayDebounce);
+
+    const fetchUsers = async () => {
       setLoading(true);
       axiosSecure
-        .get(`/users/search?email=${searchEmail}`)
+        .get(`/users`)
         .then((res) => {
           setUsers(res.data || []);
           setError("");
@@ -31,10 +51,9 @@ const ManageUsers = () => {
         .finally(() => {
           setLoading(false);
         });
-    }, 500);
-
-    return () => clearTimeout(delayDebounce);
-  }, [searchEmail, axiosSecure]);
+    };
+    fetchUsers();
+  }, [axiosSecure]);
 
   const handleRoleChange = (id, newRole) => {
     axiosSecure
@@ -55,22 +74,22 @@ const ManageUsers = () => {
     <div className="p-6">
       <h2 className="text-2xl font-bold mb-4">Manage Users</h2>
 
-      <input
+      {/* <input
         type="text"
         placeholder="Search by email"
         className="p-2 border rounded w-full mb-4"
         value={searchEmail}
         onChange={(e) => setSearchEmail(e.target.value)}
-      />
+      /> */}
 
       {loading && <Loading></Loading>}
       {error && <p className="text-red-500">{error}</p>}
 
-      {!loading && users.length === 0 && searchEmail && (
+      {/* {!loading && users.length === 0 && searchEmail && (
         <p>No users found.</p>
-      )}
+      )} */}
 
-      {!loading && users.length > 0 && (
+      {users ? (
         <div className="overflow-x-auto">
           <table className="w-full border ">
             <thead>
@@ -109,7 +128,7 @@ const ManageUsers = () => {
             </tbody>
           </table>
         </div>
-      )}
+      ):"No user found"}
     </div>
   );
 };

@@ -1,35 +1,52 @@
-import { useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import useAxiosSecure from '../../hooks/useAxiosSecure';
-import { FaEye, FaEdit, FaTrash } from 'react-icons/fa';
-import Swal from 'sweetalert2';
-import Loading from '../../components/Loading';
+import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { FaEye, FaEdit, FaTrash } from "react-icons/fa";
+import Swal from "sweetalert2";
+import Loading from "../../components/Loading";
+import { Link } from "react-router";
+import EditMealModal from "./EditMealModal";
 
 const AllMeals = () => {
-  const [sortBy, setSortBy] = useState('likes');
+  const [sortBy, setSortBy] = useState("likes");
   const axiosSecure = useAxiosSecure();
+  // const [selectedMeal, setSelectedMeal] = useState(null);
 
-  const { data: meals = [], refetch, isLoading } = useQuery({
-    queryKey: ['adminMeals', sortBy],
+  const {
+    data: meals = [],
+    refetch,
+    isLoading,
+  } = useQuery({
+    queryKey: ["adminMeals", sortBy],
     queryFn: async () => {
       const res = await axiosSecure.get(`/meals?sort=${sortBy}`);
       return res.data;
-    }
+    },
   });
+
+  // // When user clicks edit icon
+  // const handleEditClick = (meal) => {
+  //   setSelectedMeal(meal);
+  // };
+
+  // // When modal closes
+  // const handleCloseModal = () => {
+  //   setSelectedMeal(null);
+  // };
 
   const handleDelete = async (id) => {
     const confirm = await Swal.fire({
-      title: 'Are you sure?',
-      text: 'You want to delete this meal?',
-      icon: 'warning',
+      title: "Are you sure?",
+      text: "You want to delete this meal?",
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: "Yes, delete it!",
     });
 
     if (confirm.isConfirmed) {
       const res = await axiosSecure.delete(`/meals/${id}`);
       if (res.data?.deletedCount > 0) {
-        Swal.fire('Deleted!', 'Meal has been deleted.', 'success');
+        Swal.fire("Deleted!", "Meal has been deleted.", "success");
         refetch();
       }
     }
@@ -41,7 +58,7 @@ const AllMeals = () => {
     <div className="p-4">
       <h2 className="text-2xl font-bold mb-4">All Meals</h2>
 
-      <div className="mb-4">
+      {/* <div className="mb-4">
         <label className="font-semibold mr-2">Sort By:</label>
         <select
           value={sortBy}
@@ -51,7 +68,7 @@ const AllMeals = () => {
           <option value="likes">Likes</option>
           <option value="reviews_count">Reviews Count</option>
         </select>
-      </div>
+      </div> */}
 
       <div className="overflow-x-auto">
         <table className="table-auto w-full border">
@@ -73,16 +90,22 @@ const AllMeals = () => {
                 <td className="p-2">{meal.reviews_count}</td>
                 <td className="p-2">{meal.rating}</td>
                 <td className="p-2">{meal.distributorName}</td>
-                <td className="p-2 space-x-2">
-                  <button className="text-blue-500 hover:underline">
+                <td className="p-2 flex items-center gap-2">
+                  <Link
+                    to={`/meal/${meal._id}`}
+                    className="text-blue-500 hover:underline"
+                  >
                     <FaEye />
-                  </button>
-                  <button className="text-green-500 hover:underline">
+                  </Link>
+                  <button
+                    // onClick={() => handleEditClick(meal)}
+                    className="text-green-500 hover:underline cursor-pointer"
+                  >
                     <FaEdit />
                   </button>
                   <button
                     onClick={() => handleDelete(meal._id)}
-                    className="text-red-500 hover:underline"
+                    className="text-red-500 hover:underline cursor-pointer"
                   >
                     <FaTrash />
                   </button>
@@ -92,6 +115,13 @@ const AllMeals = () => {
           </tbody>
         </table>
       </div>
+      {/* {selectedMeal && (
+        <EditMealModal
+          meal={selectedMeal}
+          onClose={handleCloseModal}
+          refetch={refetch} // if you’re using TanStack Query
+        />
+      )} */}
     </div>
   );
 };

@@ -45,7 +45,6 @@ const AllReviews = () => {
             <tr className="text-left">
               <th className="p-2">Meal Title</th>
               <th className="p-2">Likes</th>
-              <th className="p-2">Reviews Count</th>
               <th className="p-2">Review</th>
               <th className="p-2">Actions</th>
             </tr>
@@ -55,8 +54,7 @@ const AllReviews = () => {
               <tr key={review._id} className="border-t">
                 <td className="p-2">{review.mealTitle}</td>
                 <td className="p-2">{review.likes}</td>
-                <td className="p-2">{review.reviews_count}</td>
-                <td className="p-2">{review.comment}</td>
+                <td className="p-2 w-100">{review.review}</td>
                 <td className="p-2 space-x-2">
                   <a
                     href={`/meal/${review.mealId}`}
