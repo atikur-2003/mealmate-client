@@ -53,7 +53,9 @@ const UpcomingMeals = () => {
   if (!meals.length)
     return (
       <div className="pt-30 text-center">
-        <h1 className= "text-2xl text-blue-500 font-bold">No Upcoming Meal Available</h1>
+        <h1 className="text-2xl text-blue-500 font-bold">
+          No Upcoming Meal Available
+        </h1>
       </div>
     );
 
@@ -83,7 +85,6 @@ const UpcomingMeals = () => {
           <p className="text-sm mb-2">
             <strong>Likes:</strong> {meal.likes || 0}
           </p>
-
           <button
             onClick={() => handleLike(meal._id)}
             disabled={likedMeals.includes(meal._id)}
