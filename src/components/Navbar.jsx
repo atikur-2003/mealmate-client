@@ -85,7 +85,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/user-review"
+          to="/testimonial"
           className={({ isActive }) =>
             `px-3 py-2 rounded-md font-semibold ${
               isActive ? "text-blue-600 font-semibold" : ""

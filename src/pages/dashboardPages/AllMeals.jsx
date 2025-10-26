@@ -10,7 +10,7 @@ import EditMealModal from "./EditMealModal";
 const AllMeals = () => {
   const [sortBy, setSortBy] = useState("likes");
   const axiosSecure = useAxiosSecure();
-  // const [selectedMeal, setSelectedMeal] = useState(null);
+  const [selectedMeal, setSelectedMeal] = useState(null);
 
   const {
     data: meals = [],
@@ -24,15 +24,15 @@ const AllMeals = () => {
     },
   });
 
-  // // When user clicks edit icon
-  // const handleEditClick = (meal) => {
-  //   setSelectedMeal(meal);
-  // };
+  // When user clicks edit icon
+  const handleEditClick = (meal) => {
+    setSelectedMeal(meal);
+  };
 
-  // // When modal closes
-  // const handleCloseModal = () => {
-  //   setSelectedMeal(null);
-  // };
+  // When modal closes
+  const handleCloseModal = () => {
+    setSelectedMeal(null);
+  };
 
   const handleDelete = async (id) => {
     const confirm = await Swal.fire({
@@ -98,7 +98,7 @@ const AllMeals = () => {
                     <FaEye />
                   </Link>
                   <button
-                    // onClick={() => handleEditClick(meal)}
+                    onClick={() => handleEditClick(meal)}
                     className="text-green-500 hover:underline cursor-pointer"
                   >
                     <FaEdit />
@@ -115,13 +115,13 @@ const AllMeals = () => {
           </tbody>
         </table>
       </div>
-      {/* {selectedMeal && (
+      {selectedMeal && (
         <EditMealModal
           meal={selectedMeal}
           onClose={handleCloseModal}
           refetch={refetch} // if you’re using TanStack Query
         />
-      )} */}
+      )}
     </div>
   );
 };

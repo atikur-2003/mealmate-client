@@ -26,7 +26,6 @@ const AddMeal = () => {
         title: data.title,
         category: data.category,
         image: imageUrl,
-        ingredients: data.ingredients,
         description: data.description,
         price: parseFloat(data.price),
         postTime: data.postTime,
@@ -54,25 +53,24 @@ const AddMeal = () => {
       <h2 className="text-2xl font-bold mb-6">Add New Meal</h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 space-x-2">
-        <input {...register("title", { required: true })} placeholder="Meal Title" className="input" />
+        <input {...register("title", { required: true })} placeholder="Meal Title" className="input focus:outline-none focus:border focus:border-blue-500" />
 
-        <input {...register("category", { required: true })} placeholder="Category (Breakfast/Lunch/Dinner)" className="input" />
+        <input {...register("category", { required: true })} placeholder="Category (Breakfast/Lunch/Dinner)" className="input focus:outline-none focus:border focus:border-blue-500" />
 
-        <input {...register("ingredients", { required: true })} placeholder="Ingredients (comma separated)" className="input mr-2" />
 
-        <textarea {...register("description", { required: true })} placeholder="Meal Description" className="input" />
+        <textarea {...register("description", { required: true })} placeholder="Meal Description" className="input focus:outline-none focus:border focus:border-blue-500" />
 
-        <input type="number" {...register("price", { required: true })} placeholder="Price (৳)" className="input" />
+        <input type="number" {...register("price", { required: true })} placeholder="Price (৳)" className="input focus:outline-none focus:border focus:border-blue-500" />
 
-        <input type="datetime-local" {...register("postTime", { required: true })} className="input" />
+        <input type="datetime-local" {...register("postTime", { required: true })} className="input focus:outline-none focus:border focus:border-blue-500" />
         
         {/* Image Upload */}
-        <input type="file" {...register("image", { required: true })} accept="image/*" className="input mr-2" />
+        <input type="file" {...register("image", { required: true })} accept="image/*" className="input mr-2 focus:outline-none focus:border focus:border-blue-500" />
 
         {/* Distributor Info */}
-        <input value={user?.displayName} readOnly className="input " />
+        <input value={user?.displayName} readOnly className="input focus:outline-none focus:border focus:border-blue-500" />
 
-        <input value={user?.email} readOnly className=" input " />
+        <input value={user?.email} readOnly className=" input focus:outline-none focus:border focus:border-blue-500" />
 
         <button type="submit" className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-6 py-2 rounded-lg cursor-pointer transition">
           Add Meal

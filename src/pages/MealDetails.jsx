@@ -140,9 +140,7 @@ const MealDetails = () => {
           <p className="mb-4">
             <strong>Description:</strong> {meal.description}
           </p>
-          <p className="mb-4">
-            <strong>Ingredients:</strong> {meal.ingredients}
-          </p>
+          
           <p className="mb-4">
             <strong>Rating:</strong> {meal.rating ?? 0}
           </p>
