@@ -8,7 +8,7 @@ import { Link } from "react-router";
 import EditMealModal from "./EditMealModal";
 
 const AllMeals = () => {
-  const [sortBy, setSortBy] = useState("likes");
+  // const [sortBy, setSortBy] = useState("likes");
   const axiosSecure = useAxiosSecure();
   const [selectedMeal, setSelectedMeal] = useState(null);
 
@@ -17,9 +17,9 @@ const AllMeals = () => {
     refetch,
     isLoading,
   } = useQuery({
-    queryKey: ["adminMeals", sortBy],
+    queryKey: ["adminMeals"],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/meals?sort=${sortBy}`);
+      const res = await axiosSecure.get(`/meals`);
       return res.data;
     },
   });
@@ -46,7 +46,13 @@ const AllMeals = () => {
     if (confirm.isConfirmed) {
       const res = await axiosSecure.delete(`/meals/${id}`);
       if (res.data?.deletedCount > 0) {
-        Swal.fire("Deleted!", "Meal has been deleted.", "success");
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Meal Deleted successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         refetch();
       }
     }

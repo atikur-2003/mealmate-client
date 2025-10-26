@@ -7,7 +7,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 const AddMeal = () => {
   const { user } = useAuth();
   const { register, handleSubmit, reset } = useForm();
-  const axiosSecure = useAxiosSecure()
+  const axiosSecure = useAxiosSecure();
 
   const imageHostingKey = import.meta.env.VITE_IMGBB_API_KEY;
   const imageHostingUrl = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`;
@@ -37,9 +37,15 @@ const AddMeal = () => {
       };
 
       // Save to DB
-      const res = await axiosSecure.post('/meals', mealData);
+      const res = await axiosSecure.post("/meals", mealData);
       if (res.data.insertedId) {
-        Swal.fire("Success", "Meal added successfully", "success");
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Meal Added successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         reset();
       }
     } catch (err) {
@@ -53,26 +59,62 @@ const AddMeal = () => {
       <h2 className="text-2xl font-bold mb-6">Add New Meal</h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 space-x-2">
-        <input {...register("title", { required: true })} placeholder="Meal Title" className="input focus:outline-none focus:border focus:border-blue-500" />
+        <input
+          {...register("title", { required: true })}
+          placeholder="Meal Title"
+          className="input focus:outline-none focus:border focus:border-blue-500"
+        />
 
-        <input {...register("category", { required: true })} placeholder="Category (Breakfast/Lunch/Dinner)" className="input focus:outline-none focus:border focus:border-blue-500" />
+        <input
+          {...register("category", { required: true })}
+          placeholder="Category (Breakfast/Lunch/Dinner)"
+          className="input focus:outline-none focus:border focus:border-blue-500"
+        />
 
+        <textarea
+          {...register("description", { required: true })}
+          placeholder="Meal Description"
+          className="input focus:outline-none focus:border focus:border-blue-500"
+        />
 
-        <textarea {...register("description", { required: true })} placeholder="Meal Description" className="input focus:outline-none focus:border focus:border-blue-500" />
+        <input
+          type="number"
+          {...register("price", { required: true })}
+          placeholder="Price (৳)"
+          className="input focus:outline-none focus:border focus:border-blue-500"
+        />
 
-        <input type="number" {...register("price", { required: true })} placeholder="Price (৳)" className="input focus:outline-none focus:border focus:border-blue-500" />
+        <input
+          type="datetime-local"
+          {...register("postTime", { required: true })}
+          className="input focus:outline-none focus:border focus:border-blue-500"
+        />
 
-        <input type="datetime-local" {...register("postTime", { required: true })} className="input focus:outline-none focus:border focus:border-blue-500" />
-        
         {/* Image Upload */}
-        <input type="file" {...register("image", { required: true })} accept="image/*" className="input mr-2 focus:outline-none focus:border focus:border-blue-500" />
+        <input
+          type="file"
+          {...register("image", { required: true })}
+          accept="image/*"
+          className="input mr-2 focus:outline-none focus:border focus:border-blue-500"
+        />
 
         {/* Distributor Info */}
-        <input value={user?.displayName} readOnly className="input focus:outline-none focus:border focus:border-blue-500" />
+        <input
+          value={user?.displayName}
+          readOnly
+          className="input focus:outline-none focus:border focus:border-blue-500"
+        />
 
-        <input value={user?.email} readOnly className=" input focus:outline-none focus:border focus:border-blue-500" />
+        <input
+          value={user?.email}
+          readOnly
+          className=" input focus:outline-none focus:border focus:border-blue-500"
+        />
 
-        <button type="submit" className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-6 py-2 rounded-lg cursor-pointer transition">
+        <button
+          type="submit"
+          className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-6 py-2 rounded-lg cursor-pointer transition"
+        >
           Add Meal
         </button>
       </form>

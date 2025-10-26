@@ -8,17 +8,20 @@ const EditMealModal = ({ meal, onClose, refetch }) => {
   const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
-    if (meal) {
-      reset({
-        title: meal.title,
-        category: meal.category,
-        description: meal.description,
-        ingredient: meal.ingredient,
-        price: meal.price,
-        date: meal.date,
-      });
-    }
-  }, [meal, reset]);
+  if (meal) {
+    const formattedDate = meal.postTime
+      ? new Date(meal.postTime).toISOString().split("T")[0]
+      : "";
+
+    reset({
+      title: meal.title,
+      category: meal.category,
+      description: meal.description,
+      price: meal.price,
+      postTime: formattedDate,
+    });
+  }
+}, [meal, reset]);
 
   const onSubmit = async (data) => {
     try {
@@ -41,8 +44,8 @@ const EditMealModal = ({ meal, onClose, refetch }) => {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-      <div className="bg-white rounded-2xl p-6 w-full max-w-3xl max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm z-50">
+      <div className="bg-base-200 rounded-2xl p-6 w-full max-w-3xl max-h-[80vh] overflow-y-auto">
         <h2 className="text-2xl font-semibold mb-4 text-center">Edit Meal</h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -68,16 +71,6 @@ const EditMealModal = ({ meal, onClose, refetch }) => {
               />
             </div>
 
-            {/* Ingredient */}
-            <div>
-              <label className="block mb-1 font-medium">Ingredient</label>
-              <input
-                type="text"
-                {...register("ingredient")}
-                className="w-full border rounded-lg px-3 py-2"
-              />
-            </div>
-
             {/* Price */}
             <div>
               <label className="block mb-1 font-medium">Price</label>
@@ -93,7 +86,7 @@ const EditMealModal = ({ meal, onClose, refetch }) => {
               <label className="block mb-1 font-medium">Date</label>
               <input
                 type="date"
-                {...register("date")}
+                {...register("postTime")}
                 className="w-full border rounded-lg px-3 py-2"
               />
             </div>
