@@ -83,9 +83,9 @@ const MealsByCategory = () => {
                   {meal.category}
                 </p>
 
-                <p className="text-sm mt-1 text-gray-600 dark:text-gray-300 mb-2">
+                {/* <p className="text-sm mt-1 text-gray-600 dark:text-gray-300 mb-2">
                   Rating: {meal.rating ?? 0}
-                </p>
+                </p> */}
                 <p className="text-lg font-bold text-primary">৳{meal.price}</p>
                 <Link
                   to={`/meal/${meal._id}`}

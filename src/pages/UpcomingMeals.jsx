@@ -1,52 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
-import { toast } from "react-hot-toast";
-import useAuth from "../hooks/useAuth";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import Loading from "../components/Loading";
 import Swal from "sweetalert2";
+import { Link } from "react-router";
 
 const UpcomingMeals = () => {
-  const { user } = useAuth();
-  const [likedMeals, setLikedMeals] = useState([]);
   const axiosSecure = useAxiosSecure();
 
-  const {
-    data: meals = [],
-    isLoading,
-    refetch,
-  } = useQuery({
+  const { data: meals = [], isLoading } = useQuery({
     queryKey: ["upcomingMeals"],
     queryFn: async () => {
       const res = await axiosSecure.get("/upcoming-meals");
       return res.data;
     },
   });
-
-  const handleLike = async (mealId) => {
-    if (!user || user.badge !== "premium") {
-      return toast.error("Only premium users can like meals");
-    }
-
-    if (likedMeals.includes(mealId)) {
-      return toast.error("You already liked this meal");
-    }
-
-    try {
-      const res = await axiosSecure.patch(`/meals/${mealId}/like`, {
-        userEmail: user.email,
-      });
-
-      if (res.data.modifiedCount > 0) {
-        Swal.fire("Liked the meal!");
-        setLikedMeals((prev) => [...prev, mealId]);
-        refetch();
-      }
-    } catch (error) {
-      console.error("Error liking meal:", error);
-      toast.error("Failed to like meal");
-    }
-  };
 
   if (isLoading) return <Loading></Loading>;
 
@@ -85,17 +52,13 @@ const UpcomingMeals = () => {
           <p className="text-sm mb-2">
             <strong>Likes:</strong> {meal.likes || 0}
           </p>
-          <button
-            onClick={() => handleLike(meal._id)}
-            disabled={likedMeals.includes(meal._id)}
-            className={`w-full mt-2 px-4 py-2 border border-blue-500 text-blue-500 cursor-pointer rounded-lg ${
-              likedMeals.includes(meal._id)
-                ? "bg-gray-400 cursor-not-allowed"
-                : "hover:bg-blue-500 hover:text-white"
-            }`}
-          >
-            {likedMeals.includes(meal._id) ? "Liked" : "Like"}
-          </button>
+          <Link to={`/meal/${meal._id}`}>
+            <button
+              className={`w-full mt-2 px-4 py-2 border border-blue-500 text-blue-500 cursor-pointer rounded-lg `}
+            >
+              View Details
+            </button>
+          </Link>
         </div>
       ))}
     </div>

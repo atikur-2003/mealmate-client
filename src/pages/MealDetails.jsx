@@ -141,9 +141,9 @@ const MealDetails = () => {
             <strong>Description:</strong> {meal.description}
           </p>
           
-          <p className="mb-4">
+          {/* <p className="mb-4">
             <strong>Rating:</strong> {meal.rating ?? 0}
-          </p>
+          </p> */}
 
           <div className="flex gap-3 mt-6">
             <button
