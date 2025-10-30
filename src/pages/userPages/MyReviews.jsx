@@ -10,16 +10,13 @@ const MyReviews = () => {
   const axiosSecure = useAxiosSecure();
 
   console.log(user.email);
-  const {
-    data: reviews = [],
-    refetch,
-  } = useQuery({
+  const { data: reviews = [], refetch } = useQuery({
     queryKey: ["myReviews", user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/reviews?email=${user.email}`);
       return res.data;
     },
-    enabled: !!user?.email, // Only run if email exists
+    enabled: !!user?.email,
   });
 
   const handleDelete = async (id) => {
@@ -75,14 +72,6 @@ const MyReviews = () => {
                   <td>{review.likes}</td>
                   <td>{review.review}</td>
                   <td className="flex justify-center gap-2 py-2 px-2">
-                    <Link
-                      to={`/dashboard/user/edit-review/${review._id}`}
-                      className="text-blue-500 hover:text-blue-700"
-                      title="Edit"
-                    >
-                      <FaEdit />
-                    </Link>
-
                     <Link
                       to={`/meal/${review.mealId}`}
                       className="text-green-600 hover:text-green-800"
