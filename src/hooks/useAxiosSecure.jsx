@@ -4,12 +4,12 @@ import useAuth from "./useAuth";
 import Swal from "sweetalert2";
 
 const axiosSecure = axios.create({
-  baseURL: `https://assignment-12-server-bay-tau.vercel.app`,
-  // baseURL: `http://localhost:5000/`,
+  // baseURL: `https://assignment-12-server-bay-tau.vercel.app`,
+  baseURL: `http://localhost:5000`,
 });
 
 const useAxiosSecure = () => {
-  const { user,} = useAuth();
+  const { user } = useAuth();
 
   useEffect(() => {
     if (!user) return;
@@ -32,8 +32,6 @@ const useAxiosSecure = () => {
   axiosSecure.interceptors.response.use(
     (res) => res,
     (error) => {
-      console.log("inside interceptor", error.response?.status);
-
       return Promise.reject(error);
     }
   );
