@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import useAxiosSecure from "../hooks/useAxiosSecure";
 import Loading from "./Loading";
 import { Link } from "react-router";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 import { motion } from "framer-motion";
 
-const MealReviews = () => {
+const AllUserReviews = () => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const axiosSecure = useAxiosSecure();
@@ -29,12 +29,12 @@ const MealReviews = () => {
   }
 
   return (
-    <section className="py-8 px-4 md:px-10 max-w-7xl mx-auto">
+    <section className="py-28 px-4 md:px-10 max-w-7xl mx-auto">
       <h2 className="text-2xl md:text-3xl text-blue-500 font-bold mb-6 text-center">
         Meal Reviews By User
       </h2>
       <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {reviews.slice(0,3).map((review) => (
+        {reviews.map((review) => (
           <motion.div
             initial={{ opacity: 0, y: 80 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -81,13 +81,8 @@ const MealReviews = () => {
           </motion.div>
         ))}
       </div>
-      <div className="mt-16 text-center">
-        <Link to='/all-user-reviews' className="px-6 py-2 text-xl font-semibold border border-blue-500 rounded-lg text-blue-500 hover:bg-blue-500 hover:text-white transition-all duration-500">
-      See All
-      </Link>
-      </div>
     </section>
   );
 };
 
-export default MealReviews;
+export default AllUserReviews;

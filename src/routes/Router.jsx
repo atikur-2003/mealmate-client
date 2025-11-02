@@ -27,6 +27,7 @@ import ErrorPage from "../pages/ErrorPage";
 import AdminOverview from "../pages/dashboardPages/AdminOverview";
 import AboutPage from "../pages/AboutPage";
 import Testimonials from "../components/Testimonials";
+import AllUserReviews from "../components/AllUserReviews";
 
 export const router = createBrowserRouter([
     {
@@ -52,6 +53,10 @@ export const router = createBrowserRouter([
             {
                 path: 'upcoming-meals',
                 Component: UpcomingMeals
+            },
+            {
+                path:'all-user-reviews',
+                Component: AllUserReviews
             },
             
             {

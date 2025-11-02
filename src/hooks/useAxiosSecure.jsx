@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import useAuth from "./useAuth";
-import Swal from "sweetalert2";
 
 const axiosSecure = axios.create({
   baseURL: `https://assignment-12-server-bay-tau.vercel.app`,

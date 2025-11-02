@@ -55,8 +55,7 @@ const Navbar = () => {
           Meals
         </NavLink>
       </li>
-      {user && (
-        <>
+      
           <li>
             <NavLink
               to="/upcoming-meals"
@@ -69,8 +68,18 @@ const Navbar = () => {
               Upcoming Meals
             </NavLink>
           </li>
-        </>
-      )}
+      <li>
+        <NavLink
+          to="/all-user-reviews"
+          className={({ isActive }) =>
+            `px-3 py-2 rounded-md font-semibold ${
+              isActive ? "text-blue-600 font-semibold" : ""
+            }`
+          }
+        >
+          Meal Reviews
+        </NavLink>
+      </li>
       <li>
         <NavLink
           to="/about-page"
@@ -83,18 +92,7 @@ const Navbar = () => {
           About Us
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/testimonial"
-          className={({ isActive }) =>
-            `px-3 py-2 rounded-md font-semibold ${
-              isActive ? "text-blue-600 font-semibold" : ""
-            }`
-          }
-        >
-          User Reviews
-        </NavLink>
-      </li>
+
       {user && (
         <li>
           <NavLink
