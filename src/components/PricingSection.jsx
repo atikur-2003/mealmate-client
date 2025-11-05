@@ -33,9 +33,9 @@ const PricingSection = () => {
   return (
     <div className="py-16 px-4 md:px-10 bg-base-100">
       <motion.div
-        initial={{ opacity: 0, y: 80 }}
+        initial={{ opacity: 0, y: -80 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeIn" }}
+        transition={{ duration: 1, ease: "easeIn" }}
         viewport={{ once: true }}
         className="max-w-7xl mx-auto text-center"
       >

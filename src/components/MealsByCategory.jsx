@@ -31,9 +31,9 @@ const MealsByCategory = () => {
   return (
     <section className="my-16 px-4 md:px-10">
       <motion.div
-        initial={{ opacity: 0, y: 80 }}
+        initial={{ opacity: 0, y: -80 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeIn" }}
+        transition={{ duration: 1, ease: "easeIn" }}
         viewport={{ once: true }}
       >
         <h2 className="text-3xl text-blue-500 font-bold text-center mb-8">

@@ -27,16 +27,16 @@ const UpcomingMeals = () => {
     );
 
   return (
-    <div className="py-28 gap-6 px-4">
+    <div className="py-28 gap-6 px-4 md:px-10">
       <div className="text-center mb-10">
         <h1 className="text-3xl font-bold text-blue-500">All Upcoming Meals</h1>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {meals.map((meal) => (
           <motion.div
             initial={{ opacity: 0, y: 80 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeIn" }}
+            transition={{ duration: 1, ease: "easeIn" }}
             viewport={{ once: true }}
             key={meal._id}
             className="bg-base-100 shadow-md rounded-xl p-4 hover:shadow-lg transition"
