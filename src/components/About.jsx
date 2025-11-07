@@ -13,9 +13,9 @@ const About = () => {
       <div className="grid md:grid-cols-2 gap-8">
         {/* Left: Image */}
         <motion.div
-          initial={{ opacity: 0, y: 80 }}
+          initial={{ opacity: 0, y: -80 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeIn" }}
+          transition={{ duration: 1, ease: "easeIn" }}
           viewport={{ once: true }}
         >
           <img
@@ -29,7 +29,7 @@ const About = () => {
         <motion.div
           initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeIn" }}
+          transition={{ duration: 1, ease: "easeIn" }}
           viewport={{ once: true }}
         >
           <p className="mb-4">

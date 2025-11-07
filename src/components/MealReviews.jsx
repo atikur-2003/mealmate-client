@@ -38,7 +38,7 @@ const MealReviews = () => {
           <motion.div
             initial={{ opacity: 0, y: 80 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeIn" }}
+            transition={{ duration: 1, ease: "easeIn" }}
             viewport={{ once: true }}
             key={review._id}
             className="bg-base-200 shadow-md rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"

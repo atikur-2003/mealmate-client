@@ -6,7 +6,7 @@ const FAQ = () => {
     <motion.div
       initial={{ opacity: 0, y: 80 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeIn" }}
+      transition={{ duration: 1, ease: "easeIn" }}
       viewport={{ once: true }}
       className="bg-base-100 px-2 md:px-10 py-10"
     >

@@ -66,7 +66,7 @@ const MealsByCategory = () => {
             <motion.div
               initial={{ opacity: 0, y: 80 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeIn", delay:0.3 }}
+              transition={{ duration: 1, ease: "easeIn", delay:0.3 }}
               viewport={{ once: true }}
               key={meal._id}
               className="rounded-lg overflow-hidden shadow-lg bg-base-200 p-5 hover:shadow-xl transition-shadow duration-300"

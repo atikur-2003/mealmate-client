@@ -15,7 +15,7 @@ const HowItWorks = () => {
           <motion.div
             initial={{ opacity: 0, y: 80 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeIn" }}
+            transition={{ duration: 1, ease: "easeIn", delay:0.3 }}
             viewport={{ once: true }}
             className="flex flex-col items-center py-7 px-5 bg-base-200 rounded-lg shadow-md"
           >
@@ -35,7 +35,7 @@ const HowItWorks = () => {
           <motion.div
             initial={{ opacity: 0, y: 80 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeIn" }}
+            transition={{ duration: 1, ease: "easeIn", delay:0.6 }}
             viewport={{ once: true }}
             className="flex flex-col items-center py-7 px-5 bg-base-200 rounded-lg shadow-md"
           >
@@ -52,7 +52,7 @@ const HowItWorks = () => {
           <motion.div
             initial={{ opacity: 0, y: 80 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeIn" }}
+            transition={{ duration: 1, ease: "easeIn", delay:0.9 }}
             viewport={{ once: true }}
             className="flex flex-col items-center py-7 px-5 bg-base-200 rounded-lg shadow-md"
           >
