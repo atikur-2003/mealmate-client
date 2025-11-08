@@ -1,6 +1,6 @@
 # MealMate
 
-## <img src="https://i.ibb.co.com/Q7NjrGVs/mealmate.png">
+## <img src="https://i.postimg.cc/Pxdm8xkb/mealmate.png">
 
 Welcome to **MealMate**,MealMate is meal management website. In this platform there is a admin who controlles the system. Users can create account and purchase a membership plan. Admin can add meal and others role as admin.
 ---
