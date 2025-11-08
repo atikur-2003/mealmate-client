@@ -1,12 +1,61 @@
-# React + Vite
+# MealMate
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## <img src="https://i.ibb.co.com/Q7NjrGVs/mealmate.png">
 
-Currently, two official plugins are available:
+Welcome to **MealMate**,MealMate is meal management website. In this platform there is a admin who controlles the system. Users can create account and purchase a membership plan. Admin can add meal and others role as admin.
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Project Overview
 
-## Expanding the ESLint configuration
+| Detail                 | Information                                                                        |
+| ---------------------- | ---------------------------------------------------------------------------------- |
+| **GitHub Server site** | [MealMate-server](https://github.com/atikur-2003/mealmate-server)         |
+| **Live Site client**   | [MealMate-firebase](https://mealmate-84e00.web.app/)                                            |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🌐 Live Site
+
+[🔗 Deployed App](#) _(https://mealmate-84e00.web.app/)_
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React.js, Tailwind CSS, daisyUi
+- **Backend**:  Express.js, Mongodb
+- **Routing**: React Router;
+- **State Management**: React Context API (AuthProvider)
+- **Toast Notifications**: Sweetalert2
+- **Deployment**: GitHub Pages / Firebase
+- **Build Tool**: Vite
+---
+
+## 🚀 Features
+
+### 🔐 Authentication & Security
+
+- **Email/Password Login**: Secure user authentication via Firebase.
+- **Google Sign-In**: Quick access using Google accounts.
+- **Protected Routes**: Restricts access to sensitive pages.
+
+### 📄 Additional Pages
+
+- **meals**:user can see all meals and can request, like and give riview to a meal.
+- **upcoming meals**:user can see all upcoming meals.
+- **about page**:about us page.
+- **FAQ**: Frequently Asked Questions.
+
+### 🎨 UI/UX Enhancements
+
+- **Responsive Design**: Optimized for various devices.
+- **Tailwind CSS & DaisyUI**: Utilized for styling and component design.
+- **Lottie Animations**: Engaging animations for better user experience.
+- **Swiper**: Interactive sliders for showcasing content.
+
+### 🎨How to run locally
+
+- come to the github repo
+- copy the repo link and clone it in your pc
+- then run the project using npm run dev command
+- it will generate a link. copy and paste the link in browser
+
+---
