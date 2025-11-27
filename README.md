@@ -10,11 +10,11 @@ Welcome to **MealMate**,MealMate is meal management website. In this platform th
 | Detail                 | Information                                                                        |
 | ---------------------- | ---------------------------------------------------------------------------------- |
 | **GitHub Server site** | [MealMate-server](https://github.com/atikur-2003/mealmate-server)         
-| **Live Site client**   | [MealMate-firebase](mealmate-84e00.web.app/)                                
+| **Live Site client**   | [MealMate-firebase](https://mealmate-84e00.web.app/)                                
 
 ## 🌐 Live Site
 
-[🔗 Deployed App](#) _(https://expense-tracker-77573.web.app/)_
+[🔗 Deployed App](#) _(https://mealmate-84e00.web.app/)_
 
 
 ## 🛠️ Tech Stack
