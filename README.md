@@ -38,9 +38,9 @@ Welcome to **MealMate**,MealMate is meal management website. In this platform th
 
 ### 📄 Additional Pages
 
-- **dashboard**:after login user will be ridirected to their dashboard.
-- **incomes**:user can add, update and delete theire incomes.
-- **expense**:user can add, update and delete theire expenses.
+- **meals**:users can see all meals. Also can like, request and review a meal.
+- **dashboard**:separate dashboard for admin and user.
+- **about**:A brief about page with company information.
 - **FAQ**: Frequently Asked Questions.
 
 ### 🎨 UI/UX Enhancements
