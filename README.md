@@ -3,7 +3,7 @@
 ## <img src="https://i.postimg.cc/Pxdm8xkb/mealmate.png">
 
 Welcome to **MealMate**,MealMate is meal management website. In this platform there is a admin who controlles the system. Users can create account and purchase a membership plan. Admin can add meal and others role as admin.
----
+
 
 ## 📌 Project Overview
 
@@ -56,5 +56,3 @@ Welcome to **MealMate**,MealMate is meal management website. In this platform th
 - copy the repo link and clone it in your pc
 - then run the project using npm run dev command
 - it will generate a link. copy and paste the link in browser
-
----
